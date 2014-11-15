@@ -1,0 +1,55 @@
+# save in utf8
+# [origina][TAB][translated]
+# empty line, line begins with "#" will be ignored.
+Font	
+Size	
+
+Bold	
+Italic	
+Underline	
+Strike-Through	
+Remove Format	
+
+Foreground Color	
+Background Color	
+
+Superscript	
+Subscript	
+
+Justify Left	
+Justify Center	
+Justify Right	
+Justify Full	
+
+Indent	
+Outdent	
+
+Ordered List	
+Unordered List	
+
+Horizontal Rule	
+Insert Image	
+Insert Link	
+
+Undo	
+Redo	
+
+Show Source	
+
+# Font Sizes
+Size 1	
+Size 2	
+Size 3	
+Size 4	
+Size 5	
+Size 6	
+Size 7	
+
+# Insert Image/Link
+Input image URL	
+Input link URL or E-mail address	
+Preview	
+Insert	
+
+# Unlink
+Unlink	

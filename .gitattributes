@@ -1,0 +1,7 @@
+.git*   eol=lf
+*.txt   eol=lf
+*.md    eol=lf
+*.html  eol=lf
+*.js    eol=lf
+*.css   eol=lf
+*.py    eol=lf

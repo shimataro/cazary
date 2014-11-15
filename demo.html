@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Cazary demo</title>
+		<link rel="stylesheet" type="text/css" href="themes/flat/style.css" />
+		<style type="text/css">
+textarea
+{
+	width: 640px;
+	height: 400px;
+}
+		</style>
+	</head>
+	<body>
+		<h1>Cazary demo</h1>
+		<textarea id="id_cazary">&lt;b&gt;very&lt;/b&gt; &lt;i&gt;easy&lt;/i&gt; &lt;u&gt;to&lt;/u&gt; &lt;s&gt;use&lt;/s&gt;!</textarea>
+		<textarea id="id_cazary_minimal">minimal mode</textarea>
+		<textarea id="id_cazary_full">full mode</textarea>
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="cazary.js"></script>
+		<script type="text/javascript">
+(function($, window)
+{
+	$(function($)
+	{
+		// that's it!
+		$("textarea#id_cazary").cazary();
+
+		// customized editor
+		$("textarea#id_cazary_minimal").cazary({
+			commands: "MINIMAL"
+		});
+		$("textarea#id_cazary_full").cazary({
+			commands: "FULL"
+		});
+	});
+})(jQuery, window);
+		</script>
+	</body>
+</html>
