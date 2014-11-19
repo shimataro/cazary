@@ -426,18 +426,19 @@
 					// check CSS
 					if(node.style !== undefined)
 					{
-						if(node.style.fontFamily !== undefined)
+						var style = node.style;
+						if(style.fontFamily !== undefined)
 						{
-							var fontFamily = node.style.fontFamily;
+							var fontFamily = style.fontFamily;
 							if(fontFamily.length > 0 && result[COMMAND_FONTNAME] === null)
 							{
 								result[COMMAND_FONTNAME] = fontFamily;
 							}
 						}
 
-						if(node.style.fontWeight !== undefined)
+						if(style.fontWeight !== undefined)
 						{
-							var fontWeight = node.style.fontWeight.toLowerCase();
+							var fontWeight = style.fontWeight.toLowerCase();
 							switch(fontWeight)
 							{
 							case "bold":
@@ -447,9 +448,9 @@
 							}
 						}
 
-						if(node.style.fontStyle !== undefined)
+						if(style.fontStyle !== undefined)
 						{
-							var fontStyle = node.style.fontStyle.toLowerCase();
+							var fontStyle = style.fontStyle.toLowerCase();
 							switch(fontStyle)
 							{
 							case "italic":
@@ -459,9 +460,9 @@
 							}
 						}
 
-						if(node.style.textDecoration !== undefined)
+						if(style.textDecoration !== undefined)
 						{
-							var textDecoration = node.style.textDecoration.toLowerCase();
+							var textDecoration = style.textDecoration.toLowerCase();
 							if(textDecoration.indexOf("underline") !== -1)
 							{
 								result[COMMAND_UNDERLINE] = STATUS_ACTIVE;
@@ -472,27 +473,27 @@
 							}
 						}
 
-						if(node.style.color !== undefined)
+						if(style.color !== undefined)
 						{
-							var color = node.style.color;
+							var color = style.color;
 							if(color.length > 0 && result[COMMAND_FORECOLOR] === null)
 							{
 								result[COMMAND_FORECOLOR] = color;
 							}
 						}
 
-						if(node.style.backgroundColor !== undefined)
+						if(style.backgroundColor !== undefined)
 						{
-							var color = node.style.backgroundColor;
+							var color = style.backgroundColor;
 							if(color.length > 0 && result[COMMAND_BACKCOLOR] === null)
 							{
 								result[COMMAND_BACKCOLOR] = color;
 							}
 						}
 
-						if(node.style.verticalAlign !== undefined)
+						if(style.verticalAlign !== undefined)
 						{
-							var verticalAlign = node.style.verticalAlign.toLowerCase();
+							var verticalAlign = style.verticalAlign.toLowerCase();
 							switch(verticalAlign)
 							{
 							case "super":
@@ -506,9 +507,9 @@
 						}
 
 						// block
-						if(node.style.textAlign !== undefined)
+						if(style.textAlign !== undefined)
 						{
-							var textAlign = node.style.textAlign.toLowerCase();
+							var textAlign = style.textAlign.toLowerCase();
 							switch(textAlign)
 							{
 							case "left":
