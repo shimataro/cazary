@@ -15,9 +15,7 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 * [Google Chrome](http://www.google.com/chrome/): Latest version
 * [Opera](http://www.opera.com/): version 12(Presto based), 15([Blink](http://www.chromium.org/blink) based)
 * [Safari for Windows](http://support.apple.com/kb/DL1531): version 5
-
-Maybe it works with Safari for OSX...but I don't test it since my main development environment is Linux (and [Windows VM](https://www.modern.ie/)).
-Someone, please help me!
+* [Safari for Mac](https://www.apple.com/jp/safari/): Latest version (thanks, Brad!)
 
 ## How to use
 
