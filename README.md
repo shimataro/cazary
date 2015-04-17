@@ -37,7 +37,7 @@ $(function($)
 });
 ```
 
-see [demo.html](demo.html)
+see [demo page](https://rawgit.com/shimataro/cazary/dev/demo.html)
 
 ## Options
 
