@@ -1,0 +1,57 @@
+# Translation data for Polish (by Paweł Klockiewicz)
+# save in utf8
+# [origina][TAB][translated]
+# empty line, line begins with "#" will be ignored.
+
+Font	Czcionka
+Size	Rozmiar
+
+Bold	Pogrubienie
+Italic	Kursywa
+Underline	Podkreślenie
+Strike-Through	Przekreślenie
+Remove Format	Usuń formatowanie
+
+Foreground Color	Kolor czcionki
+Background Color	Kolor tła
+
+Superscript	Indeks górny
+Subscript	Indeks dolny
+
+Justify Left	Wyrównanie do lewej
+Justify Center	Wyrównaj do środka
+Justify Right	Wyrównaj do prawej
+Justify Full	Wyjustowanie
+
+Indent	Zwiększ wcięcie
+Outdent	Zmniejsz wcięcie
+
+Ordered List	Numerowanie
+Unordered List	Punktory
+
+Horizontal Rule	Pozioma linia
+Insert Image	Wstaw obrazek
+Insert Link	Wstaw link
+
+Undo	Cofnij
+Redo	Powtórz
+
+Show Source	Pokaż źródło
+
+# Font Sizes
+Size 1	Rozmiar 1
+Size 2	Rozmiar 2
+Size 3	Rozmiar 3
+Size 4	Rozmiar 4
+Size 5	Rozmiar 5
+Size 6	Rozmiar 6
+Size 7	Rozmiar 7
+
+# Insert Image/Link
+Input image URL	Adres obrazka
+Input link URL or E-mail address	Wprowadź adres URL lub E-mail
+Preview	Podgląd
+Insert	Wstaw
+
+# Unlink
+Unlink	Usuń link

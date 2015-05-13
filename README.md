@@ -122,3 +122,13 @@ I'm looking for human resources.
 
 * translators - except English and Japanese (translate from English or Japanese)
 * designers - please create cool themes!
+
+## Special Thanks
+
+<dl>
+	<dt>[yuqianyumo](https://github.com/jqueryscript)</dt>
+	<dd>Introducing Cazary in [website](http://www.jqueryscript.net/text/Simple-Html-WYSIWYG-Editor-Plugin-with-jQuery-Cazary.html)</dd>
+
+	<dt>Paweł Klockiewicz</dt>
+	<dd>Polish Translation</dd>
+</dl>
