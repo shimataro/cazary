@@ -17,6 +17,12 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 * [Safari for Windows](http://support.apple.com/kb/DL1531): version 5
 * [Safari for Mac](https://www.apple.com/jp/safari/): Latest version (thanks, Brad!)
 
+## Supported Languages
+
+* English
+* Japanese
+* Polish
+
 ## How to use
 
 ```js
