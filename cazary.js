@@ -1,6 +1,7 @@
 /*! Cazary (jQuery 1.7+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
 (function($, window, undefined)
 {
+	"use strict";
 	var document = window.document;
 
 	/**
