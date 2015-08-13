@@ -769,7 +769,15 @@
 						.addClass("cazary-source")
 					;
 
-					var editor = new EditorCore($cazary_edit.get(0), $origin.val(), options.style);
+					// add style for placeholder
+					var style = options.style;
+					var placeholder_text = $origin.attr("placeholder");
+					if(placeholder_text !== undefined)
+					{
+						placeholder_text = placeholder_text.replace("'", "\\'");
+						style += "body.empty:before{position:fixed;color:#888;content:'" + placeholder_text + "';}";
+					}
+					var editor = new EditorCore($cazary_edit.get(0), $origin.val(), style);
 
 					var commands_generic = [
 						editor.COMMAND_BOLD, editor.COMMAND_ITALIC, editor.COMMAND_UNDERLINE, editor.COMMAND_STRIKETHROUGH, editor.COMMAND_REMOVEFORMAT,
@@ -815,7 +823,11 @@
 						})
 						.bind("keyup paste", function()
 						{
-							window.setTimeout(_updateCommandStatus, 10);
+							window.setTimeout(function()
+							{
+								_updateCommandStatus();
+								_setEmptyClass();
+							}, 10);
 						});
 
 					$(editor.contentWindow)
@@ -886,6 +898,7 @@
 						// set HTML data to RTE
 						var value = $origin.val();
 						editor.value(value);
+						_setEmptyClass();
 
 						// set visibility
 						$origin.hide();
@@ -1443,6 +1456,22 @@
 						else
 						{
 							editor.setFocus();
+						}
+					}
+
+					/**
+					 * set/unset "empty" class to body
+					 */
+					function _setEmptyClass()
+					{
+						var $body = $(editor.contentDocument.body);
+						if($body.text().length === 0)
+						{
+							$body.addClass("empty");
+						}
+						else
+						{
+							$body.removeClass("empty");
 						}
 					}
 				});
