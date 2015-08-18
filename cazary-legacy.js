@@ -1114,7 +1114,7 @@
 	</ul>
 </div>
 */
-						$panel = $("<div>");
+						var $panel = $("<div>");
 
 						$.each(colors, function()
 						{
@@ -1159,7 +1159,7 @@
 	</form>
 </div>
 */
-						$panel = $("<div>")
+						var $panel = $("<div>")
 							.append(
 								$("<form />")
 									.attr("action", "#")
