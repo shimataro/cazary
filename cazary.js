@@ -288,6 +288,11 @@
 			}
 			function _setValue(value)
 			{
+				if(value.length === 0)
+				{
+					// set dummy text temporary (for Firefox's caret bug)
+					contentDocument.body.innerHTML = "\u200b";
+				}
 				contentDocument.body.innerHTML = value;
 			}
 			function _setHTML(html)
