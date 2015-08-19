@@ -282,17 +282,11 @@
 					.replace(/(<\/?)em\b/gi, "$1i")
 					.replace(/(<\/?)strong\b/gi, "$1b")
 					.replace(/(<\/?)del\b/gi, "$1s")
-					.replace(/^<br\s*\/?>$/i, "")
 				;
 				return html;
 			}
 			function _setValue(value)
 			{
-				if(value.length === 0)
-				{
-					// set dummy text temporary (for Firefox's caret bug)
-					contentDocument.body.innerHTML = "\u200b";
-				}
 				contentDocument.body.innerHTML = value;
 			}
 			function _setHTML(html)
@@ -635,11 +629,11 @@
 /*
 <div class="cazary">
 	<!-- commands wrapper is here -->
-	<iframe class="cazary-edit" src="javascript:"></iframe>
+	<iframe class="cazary-edit" src="javascript:" style="display:none;"></iframe>
 	<!-- original textarea is here -->
 </div>
 */
-			var CAZARY = '<div class="cazary"><iframe class="cazary-edit" src="javascript:"></iframe></div>';
+			var CAZARY = '<div class="cazary"><iframe class="cazary-edit" src="javascript:" style="display:none;"></iframe></div>';
 
 			// command => name
 			var ASSOC_COMMANDNAMES = {
