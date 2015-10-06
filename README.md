@@ -43,7 +43,7 @@ $(function($)
 });
 ```
 
-see [demo page](https://rawgit.com/shimataro/cazary/dev/demo.html)
+see [demo page](https://rawgit.com/shimataro/cazary/master/demo.html)
 
 ## Options
 
