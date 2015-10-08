@@ -121,6 +121,14 @@ see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
 
 http://github.com/shimataro/cazary
 
+## Release note
+
+* 2015-10-08 *version 1.0.1*
+	* Fixed Polish translation.
+
+* 2015-10-06 *version 1.0*
+	* First release.
+
 ## Recruitment
 
 I'm looking for human resources.
