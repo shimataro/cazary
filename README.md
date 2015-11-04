@@ -123,6 +123,9 @@ http://github.com/shimataro/cazary
 
 ## Release note
 
+* 2015-11-05 *version 1.1.0*
+	* Supports CommonJS.
+
 * 2015-10-08 *version 1.0.1*
 	* Fixed Polish translation.
 
