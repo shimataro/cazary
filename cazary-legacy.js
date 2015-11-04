@@ -1,4 +1,15 @@
 /*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
+(function(factory)
+{
+	if(typeof module === "object" && typeof module.exports === "object")
+	{
+		module.exports = factory(require("jquery"), window);
+	}
+	else
+	{
+		factory(jQuery, window);
+	}
+}
 (function($, window, undefined)
 {
 	"use strict";
@@ -1555,4 +1566,4 @@
 			}
 		})($)
 	});
-})(jQuery, window);
+}));

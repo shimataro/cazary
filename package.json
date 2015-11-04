@@ -1,0 +1,27 @@
+{
+  "name": "cazary",
+  "version": "1.0.1",
+  "description": "jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, customizable, cross-browser, and multi-language.",
+  "main": "./cazary.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "style": "./themes/flat/style.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shimataro/cazary.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "wysiwyg"
+  ],
+  "author": "shimataro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shimataro/cazary/issues"
+  },
+  "homepage": "https://github.com/shimataro/cazary",
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  }
+}
