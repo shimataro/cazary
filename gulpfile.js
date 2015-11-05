@@ -4,12 +4,21 @@ var gulp = require("gulp");
 // default task
 gulp.task("default", ["js", "sass"], function()
 {
-	console.log("done");
+});
+
+
+// combine translation files
+gulp.task("translation", function()
+{
+	var concat = require("gulp-concat");
+	return gulp.src("./src/i18n/*.yaml")
+		.pipe(concat("translation.yaml"))
+		.pipe(gulp.dest("./src"));
 });
 
 
 // combine and minify JS
-gulp.task("js", function()
+gulp.task("js", ["translation"], function()
 {
 	var webpack = require("webpack-stream");
 	var uglify = require("gulp-uglify");

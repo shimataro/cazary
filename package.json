@@ -26,8 +26,11 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
     "gulp-sass": "^2.1.0",
     "gulp-uglify": "^1.4.2",
-    "webpack-stream": "^2.1.1"
+    "json-loader": "^0.5.3",
+    "webpack-stream": "^2.1.1",
+    "yaml-loader": "^0.1.0"
   }
 }

@@ -5,5 +5,8 @@
 *.swp
 *.log
 
+# translation data
+src/translation.yaml
+
 # Node.js module files
 node_modules/
