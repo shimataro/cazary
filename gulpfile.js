@@ -44,7 +44,7 @@ gulp.task("js", ["translation"], function()
 gulp.task("sass", function()
 {
 	var sass = require("gulp-sass");
-	gulp.src("./themes/*/*.scss")
+	gulp.src("./themes/*/style.scss")
 		.pipe(sass({
 			outputStyle: "compressed"
 		}))
