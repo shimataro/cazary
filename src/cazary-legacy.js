@@ -3,7 +3,7 @@
 {
 	if(typeof module === "object" && typeof module.exports === "object")
 	{
-		module.exports = factory(require("jquery"), window);
+		module.exports = factory(jQuery, window);
 	}
 	else
 	{

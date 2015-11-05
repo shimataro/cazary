@@ -1,5 +1,9 @@
 # temporary files
+.*
 *~
 *.tmp
 *.swp
 *.log
+
+# Node.js module files
+node_modules/
