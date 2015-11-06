@@ -47,7 +47,7 @@ That's it! Now following distribution files are generated.
 ### 1. Create YAML file
 
 Language files are in `src/i18n` directory.
-If you translate cazary, put it in this directory as `[lanuage].yaml`.
+If you translate cazary, put it in this directory as `[language].yaml`.
 
 Format is very simple, so you can create easily with no explanation.
 
