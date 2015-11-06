@@ -40,8 +40,6 @@ That's it! Now following distribution files are generated.
 * `cazary-legacy.min.js`
 * `themes/flat/style.css`
 
-`src/_.json` is also generated, but this can be removed because it's a temporary file.
-
 ---
 
 ## How to translate

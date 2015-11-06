@@ -23,8 +23,8 @@
 	 */
 	var _ = (function()
 	{
-		// TRANSLATION_DATA will be replaced by the contents of "./translation.json" in gulp task
-		var translation_data = TRANSLATION_DATA;
+		// NOTE: below placeholder will be replaced by real data in gulp task.
+		var translation_data = __TRANSLATION_DATA__;
 		var current_translation_data = _getCurrentTranslationData();
 
 		return function(text)

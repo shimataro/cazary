@@ -5,8 +5,5 @@
 *.swp
 *.log
 
-# translation data
-src/_.json
-
 # Node.js module files
 node_modules/
