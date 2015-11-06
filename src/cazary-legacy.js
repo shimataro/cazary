@@ -1,4 +1,15 @@
 /*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
+(function(factory)
+{
+	if(typeof module === "object" && typeof module.exports === "object")
+	{
+		module.exports = factory(require("jquery"), window);
+	}
+	else
+	{
+		factory(jQuery, window);
+	}
+}
 (function($, window, undefined)
 {
 	"use strict";
@@ -12,14 +23,8 @@
 	 */
 	var _ = (function()
 	{
-		/**
-		 * Translation Data
-		 * see i18n directory
-		 */
-		var translation_data = {
-			"ja": {"Insert Image": "\u753b\u50cf\u633f\u5165", "Size 5": "\u30b5\u30a4\u30ba5", "Show Source": "HTML\u30bd\u30fc\u30b9\u8868\u793a", "Size 4": "\u30b5\u30a4\u30ba4", "Justify Right": "\u53f3\u63c3\u3048", "Remove Format": "\u66f8\u5f0f\u3092\u30af\u30ea\u30a2", "Justify Center": "\u4e2d\u592e\u63c3\u3048", "Italic": "\u659c\u4f53", "Size 1": "\u30b5\u30a4\u30ba1", "Subscript": "\u4e0b\u4ed8\u304d\u6587\u5b57", "Preview": "\u30d7\u30ec\u30d3\u30e5\u30fc", "Input link URL or E-mail address": "\u30ea\u30f3\u30af\u5148URL\u307e\u305f\u306f\u30e1\u30fc\u30eb\u30a2\u30c9\u30ec\u30b9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "Bold": "\u592a\u5b57", "Unordered List": "\u7b87\u6761\u66f8\u304d", "Input image URL": "\u753b\u50cfURL\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "Undo": "\u5143\u306b\u623b\u3059", "Strike-Through": "\u6253\u3061\u6d88\u3057\u7dda", "Horizontal Rule": "\u6a2a\u7dda", "Superscript": "\u4e0a\u4ed8\u304d\u6587\u5b57", "Outdent": "\u5b57\u4e0b\u3052\u89e3\u9664", "Background Color": "\u80cc\u666f\u8272", "Size 7": "\u30b5\u30a4\u30ba7", "Size 6": "\u30b5\u30a4\u30ba6", "Indent": "\u5b57\u4e0b\u3052", "Size 3": "\u30b5\u30a4\u30ba3", "Size 2": "\u30b5\u30a4\u30ba2", "Insert": "\u633f\u5165", "Ordered List": "\u756a\u53f7\u4ed8\u304d\u30ea\u30b9\u30c8", "Justify Left": "\u5de6\u63c3\u3048", "Justify Full": "\u4e21\u7aef\u63c3\u3048", "Foreground Color": "\u6587\u5b57\u8272", "Unlink": "\u30ea\u30f3\u30af\u89e3\u9664", "Insert Link": "\u30ea\u30f3\u30af\u633f\u5165", "Font": "\u30d5\u30a9\u30f3\u30c8", "Redo": "\u3084\u308a\u76f4\u3057", "Underline": "\u4e0b\u7dda", "Size": "\u30b5\u30a4\u30ba"},
-			"pl": {"Insert Image": "Wstaw obrazek", "Size 5": "Rozmiar 5", "Show Source": "Poka\u017c \u017ar\u00f3d\u0142o", "Size 4": "Rozmiar 4", "Justify Right": "Wyr\u00f3wnaj do prawej", "Remove Format": "Usu\u0144 formatowanie", "Justify Center": "Wyr\u00f3wnaj do \u015brodka", "Italic": "Kursywa", "Size 1": "Rozmiar 1", "Subscript": "Indeks dolny", "Preview": "Podgl\u0105d", "Input link URL or E-mail address": "Wprowad\u017a adres URL lub E-mail", "Bold": "Pogrubienie", "Unordered List": "Punktory", "Input image URL": "Adres obrazka", "Undo": "Cofnij", "Strike-Through": "Przekre\u015blenie", "Horizontal Rule": "Pozioma linia", "Superscript": "Indeks g\u00f3rny", "Outdent": "Zmniejsz wci\u0119cie", "Background Color": "Kolor t\u0142a", "Size 7": "Rozmiar 7", "Size 6": "Rozmiar 6", "Indent": "Zwi\u0119ksz wci\u0119cie", "Size 3": "Rozmiar 3", "Size 2": "Rozmiar 2", "Insert": "Wstaw", "Ordered List": "Numerowanie", "Justify Left": "Wyr\u00f3wnanie do lewej", "Justify Full": "Wyjustowanie", "Foreground Color": "Kolor czcionki", "Unlink": "Usu\u0144 link", "Insert Link": "Wstaw link", "Font": "Czcionka", "Redo": "Powt\u00f3rz", "Underline": "Podkre\u015blenie", "Size": "Rozmiar"}
-		};
+		// NOTE: below placeholder will be replaced by real data in gulp task.
+		var translation_data = __TRANSLATION_DATA__;
 		var current_translation_data = _getCurrentTranslationData();
 
 		return function(text)
@@ -1555,4 +1560,4 @@
 			}
 		})($)
 	});
-})(jQuery, window);
+}));
