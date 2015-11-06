@@ -11,8 +11,12 @@ gulp.task("default", ["js", "sass"], function()
 gulp.task("translation", function()
 {
 	var concat = require("gulp-concat");
+	var yaml = require("gulp-yaml");
+	var rename = require("gulp-rename");
 	return gulp.src("./src/i18n/*.yaml")
-		.pipe(concat("translation.yaml"))
+		.pipe(concat("_.yaml"))
+		.pipe(yaml())
+		.pipe(rename({extname: ".json"}))
 		.pipe(gulp.dest("./src"));
 });
 
@@ -20,22 +24,15 @@ gulp.task("translation", function()
 // combine and minify JS
 gulp.task("js", ["translation"], function()
 {
-	var webpack = require("webpack-stream");
+	var fs = require("fs");
+	var replace = require("gulp-replace");
 	var uglify = require("gulp-uglify");
-	gulp.src("")
-		.pipe(webpack({
-//			devtool: "#source-map",
-			entry: {
-				"cazary": "./src/cazary.js",
-				"cazary-legacy": "./src/cazary-legacy.js",
-			},
-			output: {
-				filename: "[name].min.js"
-			}
-		}))
-		.pipe(uglify({
-			preserveComments: "some"
-		}))
+	var rename = require("gulp-rename");
+	var translation_data = fs.readFileSync("./src/_.json");
+	gulp.src("./src/*.js")
+		.pipe(replace("TRANSLATION_DATA", translation_data))
+		.pipe(uglify({preserveComments: "some"}))
+		.pipe(rename({suffix: ".min"}))
 		.pipe(gulp.dest("."));
 });
 

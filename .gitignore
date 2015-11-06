@@ -6,7 +6,7 @@
 *.log
 
 # translation data
-src/translation.yaml
+src/_.json
 
 # Node.js module files
 node_modules/

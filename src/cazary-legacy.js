@@ -3,7 +3,7 @@
 {
 	if(typeof module === "object" && typeof module.exports === "object")
 	{
-		module.exports = factory(jQuery, window);
+		module.exports = factory(require("jquery"), window);
 	}
 	else
 	{
@@ -23,11 +23,8 @@
 	 */
 	var _ = (function()
 	{
-		/**
-		 * Translation Data
-		 * see i18n directory
-		 */
-		var translation_data = require("json!yaml!./translation.yaml");
+		// TRANSLATION_DATA will be replaced by the contents of "./translation.json" in gulp task
+		var translation_data = TRANSLATION_DATA;
 		var current_translation_data = _getCurrentTranslationData();
 
 		return function(text)
