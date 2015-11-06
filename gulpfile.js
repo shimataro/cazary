@@ -2,7 +2,7 @@ var gulp = require("gulp");
 
 
 // default task
-gulp.task("default", ["js", "sass"], function()
+gulp.task("default", ["js", "css"], function()
 {
 });
 
@@ -45,15 +45,11 @@ gulp.task("js", function()
 });
 
 
-
-
-// compile Sass
-gulp.task("sass", function()
+// CSS task: compile Sass
+gulp.task("css", function()
 {
 	var sass = require("gulp-sass");
 	gulp.src("./themes/*/style.scss")
-		.pipe(sass({
-			outputStyle: "compressed"
-		}))
+		.pipe(sass({outputStyle: "compressed"}))
 		.pipe(gulp.dest("./themes"));
 });
