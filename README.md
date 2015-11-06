@@ -127,8 +127,10 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 
 ## Release note
 
-* 2015-11-05 *version 1.1.0*
-	* Supports CommonJS.
+* 2015-11-06 *version 1.1.0*
+	* Supports [CommonJS](http://www.commonjs.org/).
+	* Translation data format to [YAML](http://yaml.org/).
+	* Build by [gulp.js](http://gulpjs.com/).
 
 * 2015-10-08 *version 1.0.1*
 	* Fixed Polish translation.

@@ -1,6 +1,6 @@
 {
   "name": "cazary",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, customizable, cross-browser, and multi-language.",
   "main": "./cazary.min.js",
   "scripts": {
