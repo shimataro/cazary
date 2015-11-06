@@ -1,6 +1,8 @@
 For Developers
 ==============
 
+---
+
 ## How to build
 
 ### 1. Preparation
@@ -49,7 +51,7 @@ That's it! Now following distribution files are generated.
 Language files are in `src/i18n` directory.
 If you translate cazary, put it in this directory as `[language].yaml`.
 
-Format is very simple, so you can create easily with no explanation.
+Format is very simple, so you will be able to create easily with no explanation.
 
 ### 2. Build with gulp
 
