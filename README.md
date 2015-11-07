@@ -127,6 +127,9 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 
 ## Release note
 
+* 2015-11-07 *version 1.1.1*
+	* `require("cazary")` returns a jQuery object
+
 * 2015-11-06 *version 1.1.0*
 	* Supports [CommonJS](http://www.commonjs.org/).
 	* Translation data format to [YAML](http://yaml.org/).
