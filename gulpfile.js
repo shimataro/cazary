@@ -2,8 +2,16 @@ var gulp = require("gulp");
 
 
 // default task
-gulp.task("default", ["js", "css"], function()
+gulp.task("default", function()
 {
+	gulp.start("build");
+});
+
+
+// build task
+gulp.task("build", function()
+{
+	gulp.start(["js", "css"]);
 });
 
 
