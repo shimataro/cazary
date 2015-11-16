@@ -45,6 +45,18 @@ $(function($)
 
 see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
 
+### CommonJS method
+
+```js
+// this returns jQuery object!
+var $ = require("cazary");
+
+$(function($)
+{
+	...
+});
+```
+
 ## Options
 
 | name | type | description | default |
