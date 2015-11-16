@@ -169,4 +169,7 @@ I'm looking for human resources.
 
 	<dt>Paweł Klockiewicz</dt>
 	<dd>Polish Translation</dd>
+
+	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
+	<dd>Brazilian Portuguese Translation</dd>
 </dl>

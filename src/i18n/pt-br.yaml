@@ -1,0 +1,53 @@
+# Brazilian Portuguese (by Luiz Eduardo Simões)
+"Font": "Fonte"
+"Size": "Tamanho"
+
+"Bold": "Negrito"
+"Italic": "Itálico"
+"Underline": "Sublinhado"
+"Strike-Through": "Tachado"
+"Remove Format": "Remover formatação"
+
+"Foreground Color": "Cor da fonte"
+"Background Color": "Sombreamento"
+
+"Superscript": "Sobrescrito"
+"Subscript": "Subscrito"
+
+"Justify Left": "Alinhar à esquerda"
+"Justify Center": "Centralizar"
+"Justify Right": "Alinhar à direita"
+"Justify Full": "Justificar"
+
+"Indent": "Aumentar recuo"
+"Outdent": "Diminuir recuo"
+
+"Ordered List": "Numeração"
+"Unordered List": "Marcadores"
+
+"Horizontal Rule": "Linha horizontal"
+"Insert Image": "Inserir imagem"
+"Insert Link": "Inserir hiperlink"
+
+"Undo": "Desfazer"
+"Redo": "Refazer"
+
+"Show Source": "Mostrar fonte"
+
+# Font Sizes
+"Size 1": "Tamanho 1"
+"Size 2": "Tamanho 2"
+"Size 3": "Tamanho 3"
+"Size 4": "Tamanho 4"
+"Size 5": "Tamanho 5"
+"Size 6": "Tamanho 6"
+"Size 7": "Tamanho 7"
+
+# Insert Image/Link
+"Input image URL": "Insira a URL da imagem"
+"Input link URL or E-mail address": "Insira uma URL ou endereço de e-mail"
+"Preview": "Pré-visualização"
+"Insert": "Inserir"
+
+# Unlink
+"Unlink": "Remover hiperlink"
