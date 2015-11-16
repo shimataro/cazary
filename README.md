@@ -22,6 +22,7 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 * English
 * Japanese
 * Polish
+* Brazilian Portuguese
 
 ## How to use
 
