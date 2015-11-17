@@ -8,15 +8,15 @@ gulp.task("default", function()
 });
 
 
-// build task
+// build JS and CSS
 gulp.task("build", function()
 {
 	gulp.start(["js", "css"]);
 });
 
 
-// JS task: embed translation data and minify
 gulp.task("js", function()
+// embed translation data and minify
 {
 	// generate translation data
 	var translation_data = {};
@@ -53,8 +53,8 @@ gulp.task("js", function()
 });
 
 
-// CSS task: compile Sass
 gulp.task("css", function()
+// compile Sass
 {
 	var sass = require("gulp-sass");
 	gulp.src("./themes/*/style.scss")
