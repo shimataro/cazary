@@ -22,6 +22,7 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 * English
 * Japanese
 * Polish
+* Portuguese
 * Brazilian Portuguese
 
 ## How to use
@@ -172,5 +173,5 @@ I'm looking for human resources.
 	<dd>Polish Translation</dd>
 
 	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
-	<dd>Brazilian Portuguese Translation</dd>
+	<dd>Portuguese/Brazilian Portuguese Translation</dd>
 </dl>
