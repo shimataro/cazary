@@ -1,0 +1,53 @@
+# Portuguese (by Luiz Eduardo Simões)
+"Font": "Tipo de letra"
+"Size": "Tamanho"
+
+"Bold": "Negrito"
+"Italic": "Itálico"
+"Underline": "Sublinhado"
+"Strike-Through": "Rasurado"
+"Remove Format": "Remover formatação"
+
+"Foreground Color": "Cor do tipo de letra"
+"Background Color": "Realçar"
+
+"Superscript": "Sobrescrito"
+"Subscript": "Subscrito"
+
+"Justify Left": "Alinhar à esquerda"
+"Justify Center": "Centrar horizontalmente"
+"Justify Right": "Alinhar à direita"
+"Justify Full": "Justificado"
+
+"Indent": "Aumentar avanço"
+"Outdent": "Diminuir avanço"
+
+"Ordered List": "Numeração"
+"Unordered List": "Marcas"
+
+"Horizontal Rule": "Linha horizontal"
+"Insert Image": "Inserir imagem"
+"Insert Link": "Inserir hiperligação"
+
+"Undo": "Anular"
+"Redo": "Refazer"
+
+"Show Source": "Mostrar código-fonte"
+
+# Font Sizes
+"Size 1": "Tamanho 1"
+"Size 2": "Tamanho 2"
+"Size 3": "Tamanho 3"
+"Size 4": "Tamanho 4"
+"Size 5": "Tamanho 5"
+"Size 6": "Tamanho 6"
+"Size 7": "Tamanho 7"
+
+# Insert Image/Link
+"Input image URL": "Insira a URL da imagem"
+"Input link URL or E-mail address": "Insira uma URL ou endereço de correio eletrónico"
+"Preview": "Pré-visualização"
+"Insert": "Inserir"
+
+# Unlink
+"Unlink": "Remover hiperligação"

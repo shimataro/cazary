@@ -22,6 +22,8 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 * English
 * Japanese
 * Polish
+* Portuguese
+* Brazilian Portuguese
 
 ## How to use
 
@@ -44,6 +46,22 @@ $(function($)
 ```
 
 see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
+
+### CommonJS method
+
+Install Cazary by simply typing `npm install cazary`!
+
+And write like this in JS file:
+
+```js
+// this returns a jQuery object!
+var $ = require("cazary");
+
+$(function($)
+{
+	...
+});
+```
 
 ## Options
 
@@ -127,6 +145,10 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 
 ## Release note
 
+* 2015-11-22 *version 1.1.2*
+	* Supports Portuguese/Brazilian Portuguese (by [Luiz Eduardo Simões](https://github.com/LinkForce))
+	* build method: `npm run build`
+
 * 2015-11-07 *version 1.1.1*
 	* `require("cazary")` returns a jQuery object
 
@@ -157,4 +179,7 @@ I'm looking for human resources.
 
 	<dt>Paweł Klockiewicz</dt>
 	<dd>Polish Translation</dd>
+
+	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
+	<dd>Portuguese/Brazilian Portuguese Translation</dd>
 </dl>

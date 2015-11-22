@@ -23,19 +23,13 @@ in [Gentoo Linux](https://www.gentoo.org/),
 
     # USE="npm" emerge net-libs/nodejs
 
-#### 1-2. Install gulp
-
-    # npm install -g gulp
-
-#### 1-3. Install packages
+#### 1-2. Install packages
 
     $ npm install
 
 ### 2. Build
 
-#### 2-1. Run gulp
-
-    $ gulp
+    $ npm run build
 
 That's it! Now following distribution files are generated.
 * `cazary.min.js`

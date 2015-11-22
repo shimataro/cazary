@@ -38,7 +38,7 @@
 
 		function _getCurrentTranslationData()
 		{
-			var language = _detectBrowserLanguage();
+			var language = _detectBrowserLanguage().toLowerCase();
 			var result = translation_data[language];
 			if(result !== undefined)
 			{
