@@ -14,7 +14,11 @@
     "url": "https://github.com/shimataro/cazary.git"
   },
   "keywords": [
+    "editor",
+    "javascript",
     "jquery-plugin",
+    "html",
+    "richtext",
     "wysiwyg"
   ],
   "author": "shimataro",
