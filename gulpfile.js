@@ -15,8 +15,8 @@ gulp.task("build", function()
 });
 
 
-gulp.task("js", function()
 // embed translation data and minify
+gulp.task("js", function()
 {
 	// generate translation data
 	var translation_data = {};
@@ -53,8 +53,8 @@ gulp.task("js", function()
 });
 
 
-gulp.task("css", function()
 // compile Sass
+gulp.task("css", function()
 {
 	var sass = require("gulp-sass");
 	gulp.src("./themes/*/style.scss")
