@@ -137,7 +137,10 @@ div.cazary
 				$button-width: 28px;
 				$button-height: 28px;
 
-				$offset-x: 0px;
+				// command names and button widths
+				// TODO: use associative array in Sass 3.3
+				$command-names : bold          italic        underline     strikethrough removeformat  forecolor                    backcolor                    superscript   subscript     justifyleft   justifycenter justifyright  justifyfull   indent        outdent       insertorderedlist insertunorderedlist inserthorizontalrule insertimage                  createlink                   unlink        undo          redo          source;
+				$command-widths: $button-width $button-width $button-width $button-width $button-width $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width     $button-width       $button-width        $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width;
 
 				margin: 0px;
 				float: left;
@@ -184,252 +187,26 @@ div.cazary
 						position: center right;
 					}
 				}
-				&.cazary-command-bold
+
+				// command buttons
+				$offset-x: 0;
+				@each $command-name in $command-names
 				{
-					@include css-sprite-offset($offset-x: $offset-x);
+					$index: index($command-names, $command-name);
+					$width: nth($command-widths, $index);
 
-					&.cazary-disabled
+					&.cazary-command-#{$command-name}
 					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
+						width: $width;
+						@include css-sprite-offset($offset-x: $offset-x);
+
+						&.cazary-disabled
+						{
+							@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
+						}
 					}
-				}
-				&.cazary-command-italic
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
 
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-underline
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-strikethrough
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-removeformat
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-forecolor
-				{
-					width: $button-width + $arrow-width !important;
-
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-backcolor
-				{
-					width: $button-width + $arrow-width !important;
-
-					$offset-x: $offset-x + $button-width + $arrow-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-superscript
-				{
-					$offset-x: $offset-x + $button-width + $arrow-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-subscript
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-justifyleft
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-justifycenter
-				{
-					$offset-x: $offset-x + $button-width;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-justifyright
-				{
-					$offset-x: $button-width * 11 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-justifyfull
-				{
-					$offset-x: $button-width * 12 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-indent
-				{
-					$offset-x: $button-width * 13 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-outdent
-				{
-					$offset-x: $button-width * 14 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-insertorderedlist
-				{
-					$offset-x: $button-width * 15 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-insertunorderedlist
-				{
-					$offset-x: $button-width * 16 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-inserthorizontalrule
-				{
-					$offset-x: $button-width * 17 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-insertimage
-				{
-					width: 41px !important;
-
-					$offset-x: $button-width * 18 + $arrow-width * 2;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-createlink
-				{
-					width: 41px !important;
-
-					$offset-x: $button-width * 19 + $arrow-width * 3;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-unlink
-				{
-					$offset-x: $button-width * 20 + $arrow-width * 4;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-undo
-				{
-					$offset-x: $button-width * 21 + $arrow-width * 4;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-redo
-				{
-					$offset-x: $button-width * 22 + $arrow-width * 4;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
-				}
-				&.cazary-command-source
-				{
-					$offset-x: $button-width * 23 + $arrow-width * 4;
-					@include css-sprite-offset($offset-x: $offset-x);
-
-					&.cazary-disabled
-					{
-						@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
-					}
+					$offset-x: $offset-x + $width;
 				}
 			}
 		}
