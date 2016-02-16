@@ -3,8 +3,9 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// color configurations
+// configurations
 
+// color configurations
 $color-border:                      adjust-color(black, $lightness: 30%);
 $color-source:                      adjust-color(black, $lightness: 80%);
 $color-source-background:           adjust-color(black, $lightness: 13%);
@@ -21,6 +22,16 @@ $color-widget-selected-text:        adjust-color(black, $lightness: 100%);
 $color-widget-selected-background:  hsl($hue: 215deg, $saturation: 60%, $lightness: 50%);
 $color-widget-selected-border:      adjust-color($color-widget-selected-background, $saturation: 10%, $lightness: -10%);
 $color-shadow:                      adjust-color(black, $lightness: 50%);
+
+// button configurations
+$arrow-width  : 13px;
+$button-width : 28px;
+$button-height: 28px;
+
+// command names and button widths
+// TODO: use associative array in Sass 3.3
+$command-names : bold          italic        underline     strikethrough removeformat  forecolor                    backcolor                    superscript   subscript     justifyleft   justifycenter justifyright  justifyfull   indent        outdent       insertorderedlist insertunorderedlist inserthorizontalrule insertimage                  createlink                   unlink        undo          redo          source;
+$command-widths: $button-width $button-width $button-width $button-width $button-width $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width     $button-width       $button-width        $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -133,15 +144,6 @@ div.cazary
 
 			li
 			{
-				$arrow-width: 13px;
-				$button-width: 28px;
-				$button-height: 28px;
-
-				// command names and button widths
-				// TODO: use associative array in Sass 3.3
-				$command-names : bold          italic        underline     strikethrough removeformat  forecolor                    backcolor                    superscript   subscript     justifyleft   justifycenter justifyright  justifyfull   indent        outdent       insertorderedlist insertunorderedlist inserthorizontalrule insertimage                  createlink                   unlink        undo          redo          source;
-				$command-widths: $button-width $button-width $button-width $button-width $button-width $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width     $button-width       $button-width        $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width;
-
 				margin: 0px;
 				float: left;
 				cursor: default;
