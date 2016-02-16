@@ -67,6 +67,16 @@ $command-widths: $button-width $button-width $button-width $button-width $button
 	*zoom: 1;
 }
 
+@mixin background-image($image, $image-svg: null)
+{
+	background-image: url($image);
+	@if $image-svg != null
+	{
+		background-image: -webkit-linear-gradient(transparent, transparent), url($image-svg);
+		background-image:         linear-gradient(transparent, transparent), url($image-svg);
+	}
+}
+
 @mixin css-sprite($image, $x, $y, $width, $height, $image-svg: null)
 {
 	text-indent: 100%;
@@ -76,17 +86,8 @@ $command-widths: $button-width $button-width $button-width $button-width $button
 	padding: 0px !important;
 	width: $width;
 	height: $height;
-	background:
-	{
-		image: url($image);
-		position: (-$x) (-$y);
-	}
-
-	@if $image-svg != null
-	{
-		background-image: -webkit-linear-gradient(transparent, transparent), url($image-svg);
-		background-image:         linear-gradient(transparent, transparent), url($image-svg);
-	}
+	background-position: (-$x) (-$y);
+	@include background-image($image, $image-svg);
 }
 @mixin css-sprite-offset($x: 0px, $y: 0px, $offset-x: 0px, $offset-y: 0px)
 {
@@ -184,10 +185,10 @@ div.cazary
 
 					background:
 					{
-						image: url("arrow-down.png");
 						repeat: no-repeat;
 						position: center right;
 					}
+					@include background-image("arrow-down.png");
 				}
 
 				// command buttons
