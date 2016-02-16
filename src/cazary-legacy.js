@@ -18,8 +18,8 @@
 	/**
 	 * simplified translation function that can be used just like GNU gettext
 	 * @function
-	 * @param {String} text text to be translated
-	 * @return {String} translated text
+	 * @param {String} text: text to be translated
+	 * @return: {String} translated text
 	 */
 	var _ = (function()
 	{
@@ -76,8 +76,8 @@
 	/**
 	 * validate email
 	 * @function
-	 * @param {String} string email
-	 * @return {Boolean} OK/NG
+	 * @param {String} string: email
+	 * @return: {Boolean} OK/NG
 	 */
 	var checkEmail = (function()
 	{
@@ -106,8 +106,8 @@
 	/**
 	 * validate URL
 	 * @function
-	 * @param {String} string URL
-	 * @return {Boolean} OK/NG
+	 * @param {String} string: URL
+	 * @return: {Boolean} OK/NG
 	 */
 	var checkURL = (function()
 	{
@@ -950,9 +950,9 @@
 
 					/**
 					 * create specified panel
-					 * @param {String} commandName command name
-					 * @param {Object} options     options
-					 * @param {jQuery} $command    command object
+					 * @param {String} commandName: command name
+					 * @param {Object} options:     options
+					 * @param {jQuery} $command:    command object
 					 */
 					function createPanel(commandName, options, $command)
 					{
