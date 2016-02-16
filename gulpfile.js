@@ -11,7 +11,7 @@ gulp.task("default", function()
 // build JS and CSS
 gulp.task("build", function()
 {
-	gulp.start(["js", "css"]);
+	gulp.start(["js", "css", "image"]);
 });
 
 
@@ -57,7 +57,23 @@ gulp.task("js", function()
 gulp.task("css", function()
 {
 	var sass = require("gulp-sass");
-	gulp.src("./themes/*/style.scss")
+	gulp.src("./src/themes/*/style.scss")
 		.pipe(sass({outputStyle: "compressed"}))
+		.pipe(gulp.dest("./themes"));
+});
+
+
+// minify SVG and generate PNG
+gulp.task("image", function()
+{
+	var imagemin = require("gulp-imagemin");
+	var pngquant = require("imagemin-pngquant");
+	var svg2png = require("gulp-svg2png");
+
+	gulp.src(["./src/themes/*/*.svg", "!./src/themes/*/*.orig.svg"])
+		.pipe(imagemin({}))
+		.pipe(gulp.dest("./themes"))
+		.pipe(svg2png())
+		.pipe(imagemin({use: [pngquant({quality: "65-80", speed: 1})]}))
 		.pipe(gulp.dest("./themes"));
 });

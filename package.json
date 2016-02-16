@@ -6,7 +6,8 @@
   "scripts": {
     "build": "gulp build",
     "js": "gulp js",
-    "css": "gulp css"
+    "css": "gulp css",
+    "image": "gulp image"
   },
   "style": "./themes/flat/style.css",
   "repository": {
@@ -32,10 +33,13 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-imagemin": "^2.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.0",
+    "gulp-svg2png": "^1.0.0",
     "gulp-uglify": "^1.4.2",
-    "gulp-yaml": "^1.0.1"
+    "gulp-yaml": "^1.0.1",
+    "imagemin-pngquant": "^4.2.0"
   }
 }

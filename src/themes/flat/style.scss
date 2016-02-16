@@ -151,7 +151,7 @@ div.cazary
 
 				font-family: sans-serif;
 
-				@include css-sprite("sprite.png", 0, 0, $button-width, $button-height);
+				@include css-sprite("sprite.png", 0, 0, $button-width, $button-height, "sprite.svg");
 				line-height: $button-height;
 
 				&:hover
@@ -188,7 +188,7 @@ div.cazary
 						repeat: no-repeat;
 						position: center right;
 					}
-					@include background-image("arrow-down.png");
+					@include background-image("arrow-down.png", "arrow-down.svg");
 				}
 
 				// command buttons
