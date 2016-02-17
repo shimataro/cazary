@@ -171,7 +171,7 @@ I'm looking for human resources.
 * translators - except English and Japanese (translate from English or Japanese)
 * designers - please create cool themes!
 
-## Special Thanks
+## Credits
 
 <dl>
 	<dt><a href="https://github.com/jqueryscript">yuqianyumo</a></dt>
@@ -182,4 +182,7 @@ I'm looking for human resources.
 
 	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
 	<dd>Portuguese/Brazilian Portuguese Translation</dd>
+
+	<dt><a href="https://www.gnu.org/software/freefont/">GNU FreeFont</dt>
+	<dd>"flat" theme uses FreeSans</dd>
 </dl>
