@@ -70,7 +70,7 @@ gulp.task("image", function()
 	var pngquant = require("imagemin-pngquant");
 	var svg2png = require("gulp-svg2png");
 
-	gulp.src(["./src/themes/*/*.svg", "!./src/themes/*/*.orig.svg"])
+	gulp.src(["./src/themes/**/*.svg", "!./**/*.orig.svg"])
 		.pipe(imagemin({}))
 		.pipe(gulp.dest("./themes"))
 		.pipe(svg2png())
