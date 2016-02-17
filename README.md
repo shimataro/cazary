@@ -183,6 +183,6 @@ I'm looking for human resources.
 	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
 	<dd>Portuguese/Brazilian Portuguese Translation</dd>
 
-	<dt><a href="https://www.gnu.org/software/freefont/">GNU FreeFont</dt>
+	<dt><a href="https://www.gnu.org/software/freefont/">GNU FreeFont</a></dt>
 	<dd>"flat" theme uses FreeSans</dd>
 </dl>
