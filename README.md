@@ -180,21 +180,12 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 I'm looking for human resources.
 [Please contact me in my GitHub page!](https://github.com/shimataro)
 
-* translators - except English and Japanese (translate from English or Japanese)
-* designers - please create cool themes!
+* **translators** - except English and Japanese (translate from English or Japanese)
+* **designers** - please create cool themes!
 
 ## Credits
 
-<dl>
-	<dt><a href="https://github.com/jqueryscript">yuqianyumo</a></dt>
-	<dd>Introducing Cazary in <a href="http://www.jqueryscript.net/text/Simple-Html-WYSIWYG-Editor-Plugin-with-jQuery-Cazary.html">website</a></dd>
-
-	<dt>Paweł Klockiewicz</dt>
-	<dd>Polish Translation</dd>
-
-	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
-	<dd>Portuguese/Brazilian Portuguese Translation</dd>
-
-	<dt><a href="https://www.gnu.org/software/freefont/">GNU FreeFont</a></dt>
-	<dd>"flat" theme uses FreeSans</dd>
-</dl>
+* **[yuqianyumo](https://github.com/jqueryscript)** - Introducing Cazary in [website](http://www.jqueryscript.net/text/Simple-Html-WYSIWYG-Editor-Plugin-with-jQuery-Cazary.html)
+* **Paweł Klockiewicz** - Polish Translation
+* **[Luiz Eduardo Simões](https://github.com/LinkForce)** - Portuguese/Brazilian Portuguese Translation
+* **[GNU FreeFont](https://www.gnu.org/software/freefont/)** - "flat" theme uses FreeSans
