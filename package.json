@@ -2,14 +2,14 @@
   "name": "cazary",
   "version": "1.1.2",
   "description": "jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, customizable, cross-browser, and multi-language.",
-  "main": "./cazary.min.js",
+  "main": "./dist/cazary.min.js",
   "scripts": {
     "build": "gulp build",
     "js": "gulp js",
     "css": "gulp css",
     "image": "gulp image"
   },
-  "style": "./themes/flat/style.css",
+  "style": "./dist/themes/flat/style.css",
   "repository": {
     "type": "git",
     "url": "https://github.com/shimataro/cazary.git"

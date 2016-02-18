@@ -1,4 +1,5 @@
 var gulp = require("gulp");
+var distdir = "./dist";
 
 
 // default task
@@ -48,7 +49,7 @@ gulp.task("js", function()
 				.pipe(replace(/\b__TRANSLATION_DATA__\b/g, translation_string))
 				.pipe(uglify({preserveComments: "some"}))
 				.pipe(rename({suffix: ".min"}))
-				.pipe(gulp.dest("."));
+				.pipe(gulp.dest(distdir));
 		});
 });
 
@@ -59,7 +60,7 @@ gulp.task("css", function()
 	var sass = require("gulp-sass");
 	gulp.src("./src/themes/*/style.scss")
 		.pipe(sass({outputStyle: "compressed"}))
-		.pipe(gulp.dest("./themes"));
+		.pipe(gulp.dest(distdir + "/themes"));
 });
 
 
@@ -72,8 +73,8 @@ gulp.task("image", function()
 
 	gulp.src(["./src/themes/**/*.svg", "!./**/*.orig.svg"])
 		.pipe(imagemin({}))
-		.pipe(gulp.dest("./themes"))
+		.pipe(gulp.dest(distdir + "/themes"))
 		.pipe(svg2png())
 		.pipe(imagemin({use: [pngquant({quality: "65-80", speed: 1})]}))
-		.pipe(gulp.dest("./themes"));
+		.pipe(gulp.dest(distdir + "/themes"));
 });
