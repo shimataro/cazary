@@ -158,7 +158,7 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 ## Release note
 
 * 2016-02-19 *version 1.2.0*
-	* SVG toolbar icons (for Retina)
+	* SVG toolbar icons (for HD screen)
 	* Changed directory structure
 
 * 2015-11-22 *version 1.1.2*
