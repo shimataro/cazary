@@ -1,4 +1,5 @@
 var gulp = require("gulp");
+var distdir = "./dist";
 
 
 // default task
@@ -11,12 +12,12 @@ gulp.task("default", function()
 // build JS and CSS
 gulp.task("build", function()
 {
-	gulp.start(["js", "css"]);
+	gulp.start(["js", "css", "image"]);
 });
 
 
-gulp.task("js", function()
 // embed translation data and minify
+gulp.task("js", function()
 {
 	// generate translation data
 	var translation_data = {};
@@ -48,16 +49,32 @@ gulp.task("js", function()
 				.pipe(replace(/\b__TRANSLATION_DATA__\b/g, translation_string))
 				.pipe(uglify({preserveComments: "some"}))
 				.pipe(rename({suffix: ".min"}))
-				.pipe(gulp.dest("."));
+				.pipe(gulp.dest(distdir));
 		});
 });
 
 
-gulp.task("css", function()
 // compile Sass
+gulp.task("css", function()
 {
 	var sass = require("gulp-sass");
-	gulp.src("./themes/*/style.scss")
+	gulp.src("./src/themes/*/style.scss")
 		.pipe(sass({outputStyle: "compressed"}))
-		.pipe(gulp.dest("./themes"));
+		.pipe(gulp.dest(distdir + "/themes"));
+});
+
+
+// minify SVG and generate PNG
+gulp.task("image", function()
+{
+	var imagemin = require("gulp-imagemin");
+	var pngquant = require("imagemin-pngquant");
+	var svg2png = require("gulp-svg2png");
+
+	gulp.src(["./src/themes/**/*.svg", "!./**/*.orig.svg"])
+		.pipe(imagemin({}))
+		.pipe(gulp.dest(distdir + "/themes"))
+		.pipe(svg2png())
+		.pipe(imagemin({use: [pngquant({quality: "65-80", speed: 1})]}))
+		.pipe(gulp.dest(distdir + "/themes"));
 });

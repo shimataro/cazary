@@ -1,0 +1,308 @@
+@charset "UTF-8";
+// sass --watch --no-cache --sourcemap=none --style compressed style.scss:style.css
+
+
+////////////////////////////////////////////////////////////////////////////////
+// configurations
+
+// color configurations
+$color-border:                      adjust-color(black, $lightness: 30%);
+$color-source:                      adjust-color(black, $lightness: 80%);
+$color-source-background:           adjust-color(black, $lightness: 13%);
+$color-commands-wrapper-background: adjust-color(black, $lightness: 94%);
+$color-commands-list-background:    adjust-color(black, $lightness: 88%);
+$color-command-background-hover:    adjust-color(black, $lightness: 82%);
+$color-command-background-active:   adjust-color(black, $lightness: 75%);
+$color-command-disabled:            adjust-color(black, $lightness: 53%);
+$color-command-separator:           adjust-color(black, $lightness: 80%);
+$color-panel-background:            adjust-color(black, $lightness: 84%);
+$color-panel-border:                adjust-color(black, $lightness: 70%);
+$color-widget-colortable-border:    adjust-color(black, $lightness: 0%);
+$color-widget-selected-text:        adjust-color(black, $lightness: 100%);
+$color-widget-selected-background:  hsl($hue: 215deg, $saturation: 60%, $lightness: 50%);
+$color-widget-selected-border:      adjust-color($color-widget-selected-background, $saturation: 10%, $lightness: -10%);
+$color-shadow:                      adjust-color(black, $lightness: 50%);
+
+// button configurations
+$arrow-width  : 13px;
+$button-width : 28px;
+$button-height: 28px;
+
+// command names and button widths
+// TODO: use associative array in Sass 3.3
+$command-names : bold          italic        underline     strikethrough removeformat  forecolor                    backcolor                    superscript   subscript     justifyleft   justifycenter justifyright  justifyfull   indent        outdent       insertorderedlist insertunorderedlist inserthorizontalrule insertimage                  createlink                   unlink        undo          redo          source;
+$command-widths: $button-width $button-width $button-width $button-width $button-width $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width     $button-width       $button-width        $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// mixins
+
+@mixin vendor-prefix($property, $value, $vendors: "o" "ms" "moz" "webkit")
+{
+	@each $vendor in $vendors
+	{
+		-#{$vendor}-#{$property}: $value;
+	}
+	#{$property}: $value;
+}
+@mixin user-select($value: none)
+{
+	@include vendor-prefix("user-select", $value, "ms" "moz" "webkit");
+}
+@mixin border-radius($value)
+{
+	@include vendor-prefix("border-radius", $value, "moz" "webkit");
+}
+@mixin box-shadow($value)
+{
+	@include vendor-prefix("box-shadow", $value, "moz" "webkit");
+}
+
+@mixin inline-block
+{
+	display: inline-block;
+
+	// IE7 Hack
+	*display: inline;
+	*zoom: 1;
+}
+
+@mixin background-image($image, $image-svg: null)
+{
+	background-image: url($image);
+	@if $image-svg != null
+	{
+		background-image: -webkit-linear-gradient(transparent, transparent), url($image-svg);
+		background-image:         linear-gradient(transparent, transparent), url($image-svg);
+	}
+}
+
+@mixin css-sprite($image, $x, $y, $width, $height, $image-svg: null)
+{
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+
+	padding: 0px !important;
+	width: $width;
+	height: $height;
+	background-position: (-$x) (-$y);
+	@include background-image($image, $image-svg);
+}
+@mixin css-sprite-offset($x: 0px, $y: 0px, $offset-x: 0px, $offset-y: 0px)
+{
+	background-position: (-$x - $offset-x) (-$y - $offset-y);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+[unselectable="on"]
+{
+	@include user-select(none);
+}
+
+div.cazary
+{
+	@include inline-block;
+
+	border: 1px solid $color-border;
+	overflow: hidden;
+
+	iframe.cazary-edit
+	{
+		display: block;
+		width: 100%;
+		border-style: none;
+	}
+	textarea.cazary-source
+	{
+		display: block;
+		border: none;
+		margin: 0px;
+		padding: 0px;
+		color: $color-source;
+		background-color: $color-source-background;
+		resize: none;
+	}
+
+	// command
+	div.cazary-commands-wrapper
+	{
+		padding: 3px;
+		background-color: $color-commands-wrapper-background;
+		overflow: hidden;
+
+		ul.cazary-commands-list
+		{
+			margin: 1px 2px;
+			padding: 0px;
+			float: left;
+			list-style-type: none;
+
+			background-color: $color-commands-list-background;
+			overflow: hidden;
+
+			li
+			{
+				margin: 0px;
+				float: left;
+				cursor: default;
+
+				font-family: sans-serif;
+
+				@include css-sprite("sprite.png", 0, 0, $button-width, $button-height, "sprite.svg");
+				line-height: $button-height;
+
+				&:hover
+				{
+					background-color: $color-command-background-hover;
+				}
+				&.cazary-active
+				{
+					background-color: $color-command-background-active !important;
+				}
+				&.cazary-disabled
+				{
+					color: $color-command-disabled !important;
+					border-color: transparent !important;
+					background-color: transparent !important;
+				}
+				&.cazary-command-separator
+				{
+					width: 0px !important;
+					margin: 0px 2px !important;
+					border: none !important;
+					border-left: 1px solid $color-command-separator !important;
+					background-color: transparent !important;
+				}
+				&.cazary-command-fontname,
+				&.cazary-command-fontsize
+				{
+					width: auto !important;
+					padding: 0px $arrow-width 0px 4px !important;
+					text-indent: 0px !important;
+
+					background:
+					{
+						repeat: no-repeat;
+						position: center right;
+					}
+					@include background-image("arrow-down.png", "arrow-down.svg");
+				}
+
+				// command buttons
+				$offset-x: 0;
+				@each $command-name in $command-names
+				{
+					$index: index($command-names, $command-name);
+					$width: nth($command-widths, $index);
+
+					&.cazary-command-#{$command-name}
+					{
+						width: $width;
+						@include css-sprite-offset($offset-x: $offset-x);
+
+						&.cazary-disabled
+						{
+							@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
+						}
+					}
+
+					$offset-x: $offset-x + $width;
+				}
+			}
+		}
+	}
+}
+
+// panel
+div.cazary-panel
+{
+	position: absolute;
+	padding: 2px;
+	border: 1px solid $color-panel-border;
+	background-color: $color-panel-background;
+
+	font-family: sans-serif;
+
+	@include box-shadow(2px 2px 4px $color-shadow);
+	filter: progid:DXImageTransform.Microsoft.Shadow(direction=135, strength=3, color=#808080);
+
+	&.cazary-panel-forecolor,
+	&.cazary-panel-backcolor,
+	&.cazary-panel-insertimage,
+	&.cazary-panel-createlink
+	{
+		padding: 4px !important;
+	}
+
+	// widget
+	ul.cazary-widget-select
+	{
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+
+		li
+		{
+			padding: 2px;
+			cursor: pointer;
+			border: 1px solid transparent;
+
+			&:hover
+			{
+				color: $color-widget-selected-text;
+				background-color: $color-widget-selected-background;
+				border: 1px solid $color-widget-selected-border;
+			}
+		}
+	}
+	ul.cazary-widget-select-color
+	{
+		margin: 0px;
+		padding: 0px;
+		list-style-type: none;
+		overflow: hidden;
+
+		li
+		{
+			margin: 1px;
+			padding: 0px;
+			float: left;
+			border: 1px solid $color-panel-background;
+			cursor: pointer;
+
+			width: 12px;
+			height: 12px;
+
+			text-indent: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+
+			@include border-radius(3px);
+
+			&:hover
+			{
+				border-color: $color-widget-colortable-border;
+			}
+		}
+	}
+	input.cazary-widget-insertimage-url,
+	input.cazary-widget-createlink-url
+	{
+		width: 400px;
+	}
+	img.cazary-widget-insertimage-img
+	{
+	}
+	fieldset.cazary-widget-preview
+	{
+		display: none;
+	}
+	iframe.cazary-widget-preview-createlink
+	{
+		width: 640px;
+		height: 480px;
+	}
+}

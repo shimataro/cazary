@@ -27,6 +27,19 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 
 ## How to use
 
+### Traditional method
+
+1. Copy `dist` to public directory
+1. Load the theme CSS
+```html
+<link rel="stylesheet" type="text/css" href="dist/themes/flat/style.css" />
+```
+1. Load jQuery and `cazary.min.js`
+```html
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="dist/cazary.min.js"></script>
+```
+1. Write JavaScript like this:
 ```js
 $(function($)
 {
@@ -49,17 +62,16 @@ see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
 
 ### CommonJS method
 
-Install Cazary by simply typing `npm install cazary`!
-
-And write like this in JS file:
-
+1. Install Cazary by simply typing `npm install cazary`
+1. Copy `dist/theme` to public directory (`*.js` is not necessary)
+1. Load the theme CSS
+1. Write JavaScript like this:
 ```js
 // this returns a jQuery object!
 var $ = require("cazary");
-
 $(function($)
 {
-	...
+	$("textarea").cazary();
 });
 ```
 
@@ -145,6 +157,10 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 
 ## Release note
 
+* 2016-02-19 *version 1.2.0*
+	* SVG toolbar icons (for Retina)
+	* Changed directory structure
+
 * 2015-11-22 *version 1.1.2*
 	* Supports Portuguese/Brazilian Portuguese (by [Luiz Eduardo Simões](https://github.com/LinkForce))
 	* build method: `npm run build`
@@ -168,18 +184,12 @@ See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and tran
 I'm looking for human resources.
 [Please contact me in my GitHub page!](https://github.com/shimataro)
 
-* translators - except English and Japanese (translate from English or Japanese)
-* designers - please create cool themes!
+* **translators** - except English and Japanese (translate from English or Japanese)
+* **designers** - please create cool themes!
 
-## Special Thanks
+## Credits
 
-<dl>
-	<dt><a href="https://github.com/jqueryscript">yuqianyumo</a></dt>
-	<dd>Introducing Cazary in <a href="http://www.jqueryscript.net/text/Simple-Html-WYSIWYG-Editor-Plugin-with-jQuery-Cazary.html">website</a></dd>
-
-	<dt>Paweł Klockiewicz</dt>
-	<dd>Polish Translation</dd>
-
-	<dt><a href="https://github.com/LinkForce">Luiz Eduardo Simões</a></dt>
-	<dd>Portuguese/Brazilian Portuguese Translation</dd>
-</dl>
+* **[yuqianyumo](https://github.com/jqueryscript)** - Introducing Cazary in [website](http://www.jqueryscript.net/text/Simple-Html-WYSIWYG-Editor-Plugin-with-jQuery-Cazary.html)
+* **Paweł Klockiewicz** - Polish Translation
+* **[Luiz Eduardo Simões](https://github.com/LinkForce)** - Portuguese/Brazilian Portuguese Translation
+* **[GNU FreeFont](https://www.gnu.org/software/freefont/)** - "flat" theme uses FreeSans

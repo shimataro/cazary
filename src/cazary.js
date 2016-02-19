@@ -18,8 +18,8 @@
 	/**
 	 * simplified translation function that can be used just like GNU gettext
 	 * @function
-	 * @param {String} text text to be translated
-	 * @return {String} translated text
+	 * @param {String} text: text to be translated
+	 * @return: {String} translated text
 	 */
 	var _ = (function()
 	{
@@ -76,8 +76,8 @@
 	/**
 	 * validate email
 	 * @function
-	 * @param {String} string email
-	 * @return {Boolean} OK/NG
+	 * @param {String} string: email
+	 * @return: {Boolean} OK/NG
 	 */
 	var checkEmail = (function()
 	{
@@ -95,7 +95,7 @@
 				// length of local part is up to 64 characters（cf. RFC 5321 4.5.3.1.1.）
 				return false;
 			}
-			if(string.match(regexp) == null)
+			if(string.match(regexp) === null)
 			{
 				return false;
 			}
@@ -106,8 +106,8 @@
 	/**
 	 * validate URL
 	 * @function
-	 * @param {String} string URL
-	 * @return {Boolean} OK/NG
+	 * @param {String} string: URL
+	 * @return: {Boolean} OK/NG
 	 */
 	var checkURL = (function()
 	{
@@ -115,7 +115,7 @@
 
 		return function(string)
 		{
-			if(string.match(regexp) == null)
+			if(string.match(regexp) === null)
 			{
 				return false;
 			}
@@ -245,7 +245,7 @@
 			function _execCommand(commandName, parameters)
 			{
 				// if browser supports "hilitecolor", use it.
-				if(commandName == COMMAND_BACKCOLOR && _canExecCommand(COMMAND_HILITECOLOR))
+				if(commandName === COMMAND_BACKCOLOR && _canExecCommand(COMMAND_HILITECOLOR))
 				{
 					commandName = COMMAND_HILITECOLOR;
 				}
@@ -332,7 +332,7 @@
 					undo: STATUS_NORMAL,
 					redo: STATUS_NORMAL
 				};
-				if(_getSelectedText() == "")
+				if(_getSelectedText() === "")
 				{
 					result[COMMAND_CREATELINK] = STATUS_DISABLED;
 					result[COMMAND_UNLINK    ] = STATUS_DISABLED;
@@ -798,7 +798,7 @@
 						editor.COMMAND_INSERTIMAGE, editor.COMMAND_CREATELINK
 					];
 
-					if(options.mode == "html")
+					if(options.mode === "html")
 					{
 						_setHtmlMode();
 					}
@@ -950,9 +950,9 @@
 
 					/**
 					 * create specified panel
-					 * @param {String} commandName command name
-					 * @param {Object} options     options
-					 * @param {jQuery} $command    command object
+					 * @param {String} commandName: command name
+					 * @param {Object} options:     options
+					 * @param {jQuery} $command:    command object
 					 */
 					function createPanel(commandName, options, $command)
 					{
