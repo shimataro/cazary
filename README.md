@@ -31,7 +31,7 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 
 1. Copy `dist` to public directory
 1. Load the theme CSS
-```css
+```html
 <link rel="stylesheet" type="text/css" href="dist/themes/flat/style.css" />
 ```
 1. Load jQuery and `cazary.min.js`
