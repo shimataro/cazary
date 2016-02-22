@@ -58,7 +58,7 @@ gulp.task("js", function()
 gulp.task("css", function()
 {
 	var sass = require("gulp-sass");
-	gulp.src("./src/themes/*/style.scss")
+	gulp.src("./src/themes/**/*.scss")
 		.pipe(sass({outputStyle: "compressed"}))
 		.pipe(gulp.dest(distdir + "/themes"));
 });
