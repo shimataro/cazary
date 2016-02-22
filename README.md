@@ -29,17 +29,17 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 
 ### Traditional method
 
-1. Copy `dist` to public directory
-1. Load the theme CSS
+* Copy `dist` to public directory
+* Load the theme CSS
 ```html
 <link rel="stylesheet" type="text/css" href="dist/themes/flat/style.css" />
 ```
-1. Load jQuery and `cazary.min.js`
+* Load jQuery and `cazary.min.js`
 ```html
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="dist/cazary.min.js"></script>
 ```
-1. Write JavaScript like this:
+* Write JavaScript like this:
 ```js
 $(function($)
 {
@@ -62,10 +62,10 @@ see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
 
 ### CommonJS method
 
-1. Install Cazary by simply typing `npm install cazary`
-1. Copy `dist/theme` to public directory (`*.js` is not necessary)
-1. Load the theme CSS
-1. Write JavaScript like this:
+* Install Cazary by simply typing `npm install cazary`
+* Copy `dist/theme` to public directory (`*.js` is not necessary)
+* Load the theme CSS
+* Write JavaScript like this:
 ```js
 // this returns a jQuery object!
 var $ = require("cazary");
