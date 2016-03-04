@@ -147,13 +147,14 @@ $(function($)
 | redo | undo the undone command |
 | source | toggle HTML/RTE mode |
 
-## Project Page
+## Project page
 
 http://github.com/shimataro/cazary
 
-## For developers
+## Documents for developers
 
-See [document for developers](FOR_DEVELOPERS.md) to learn how to build, and translate.
+* [How to build](doc/HOW_TO_BUILD.md)
+* [How to translate](doc/HOW_TO_TRANSLATE.md)
 
 ## Release note
 
