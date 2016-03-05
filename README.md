@@ -194,4 +194,4 @@ I'm looking for human resources.
 * **Paweł Klockiewicz** - Polish Translation
 * **[Luiz Eduardo Simões](https://github.com/LinkForce)** - Portuguese/Brazilian Portuguese Translation
 * **[GNU FreeFont](https://www.gnu.org/software/freefont/)** - "flat" theme uses FreeSans
-* **Brad** - Testing on Safari for Mac
+* **Brad Owen** - Testing on Safari for Mac
