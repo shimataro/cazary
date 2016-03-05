@@ -5,6 +5,7 @@
   "main": "./dist/cazary.min.js",
   "scripts": {
     "build": "gulp build",
+    "demo": "gulp demo",
     "js": "gulp js",
     "css": "gulp css",
     "image": "gulp image"
@@ -32,6 +33,7 @@
     "jquery": ">=1.2.4"
   },
   "devDependencies": {
+    "apply-patch": "^0.1.2",
     "gulp": "^3.9.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-rename": "^1.2.2",

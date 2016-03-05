@@ -1,0 +1,28 @@
+--- demo.html	2016-03-05 00:00:00.000000000 +0000
++++ demo-legacy.html	2016-03-05 00:00:00.000000000 +0000
+@@ -2,7 +2,7 @@
+ <html>
+ 	<head>
+ 		<meta charset="UTF-8" />
+-		<title>Cazary demo</title>
++		<title>Cazary demo (legacy)</title>
+ 		<link rel="stylesheet" type="text/css" href="dist/themes/flat/style.css" />
+ 		<style type="text/css">
+ textarea
+@@ -13,13 +13,13 @@
+ 		</style>
+ 	</head>
+ 	<body>
+-		<h1>Cazary demo</h1>
++		<h1>Cazary demo (legacy)</h1>
+ 		<textarea id="id_cazary" placeholder="normal mode">&lt;b&gt;very&lt;/b&gt; &lt;i&gt;easy&lt;/i&gt; &lt;u&gt;to&lt;/u&gt; &lt;s&gt;use&lt;/s&gt;!</textarea>
+ 		<textarea id="id_cazary_minimal" placeholder="minimal mode"></textarea>
+ 		<textarea id="id_cazary_full" placeholder="full mode"></textarea>
+ 
+-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.min.js"></script>
+-		<script type="text/javascript" src="dist/cazary.min.js"></script>
++		<script type="text/javascript" src="https://code.jquery.com/jquery-1.2.4.min.js"></script>
++		<script type="text/javascript" src="dist/cazary-legacy.min.js"></script>
+ 		<script type="text/javascript">
+ (function($, window)
+ {

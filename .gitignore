@@ -7,3 +7,6 @@
 
 # Node.js module files
 node_modules/
+
+# auto-generated files
+src/cazary-legacy.js

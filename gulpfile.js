@@ -12,13 +12,26 @@ gulp.task("default", function()
 // build JS and CSS
 gulp.task("build", function()
 {
-	gulp.start(["js", "css", "image"]);
+	gulp.start(["demo", "js", "css", "image"]);
+});
+
+
+// build demo file
+gulp.task("demo", function()
+{
+	// generate "demo-legacy.html"
+	var patch = require("apply-patch");
+	patch.applyPatch("./patch/legacy-demo.patch");
 });
 
 
 // embed translation data and minify
 gulp.task("js", function()
 {
+	// generate "src/cazary-legacy.js"
+	var patch = require("apply-patch");
+	patch.applyPatch("./patch/legacy-js.patch");
+
 	// generate translation data
 	var translation_data = {};
 	var yaml = require("gulp-yaml");

@@ -1,0 +1,150 @@
+--- src/cazary.js	2016-03-05 00:00:00.000000000 +0000
++++ src/cazary-legacy.js	2016-03-05 00:00:00.000000000 +0000
+@@ -1,4 +1,4 @@
+-/*! Cazary (jQuery 1.7+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
++/*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
+ (function(factory)
+ {
+ 	if(typeof module === "object" && typeof module.exports === "object")
+@@ -712,11 +712,11 @@
+ 			{
+ 				// window events
+ 				$(document)
+-					.on("click", function()
++					.bind("click", function()
+ 					{
+ 						destroyAllPanels();
+ 					})
+-					.on("keydown", function(event)
++					.bind("keydown", function(event)
+ 					{
+ 						if(event.keyCode === KEYCODE_ESCAPE)
+ 						{
+@@ -809,23 +809,23 @@
+ 
+ 					// editor events
+ 					$(editor.contentDocument)
+-						.on("select", function()
++						.bind("select", function()
+ 						{
+ 							_updateCommandStatus();
+ 						})
+-						.on("mouseup", function()
++						.bind("mouseup", function()
+ 						{
+ 							destroyAllPanels();
+ 							_updateCommandStatus();
+ 						})
+-						.on("keydown", function(event)
++						.bind("keydown", function(event)
+ 						{
+ 							if(event.keyCode === KEYCODE_ESCAPE)
+ 							{
+ 								destroyAllPanels();
+ 							}
+ 						})
+-						.on("keyup paste", function()
++						.bind("keyup paste", function()
+ 						{
+ 							window.setTimeout(function()
+ 							{
+@@ -835,12 +835,12 @@
+ 						});
+ 
+ 					$(editor.contentWindow)
+-						.on("focus", function()
++						.bind("focus", function()
+ 						{
+ 							destroyAllPanels();
+ 							_updateCommandStatus();
+ 						})
+-						.on("blur", function()
++						.bind("blur", function()
+ 						{
+ 							// update original element when focus is out
+ 							$origin.val(editor.value());
+@@ -848,7 +848,7 @@
+ 
+ 					// cancel other handler when command is disabled
+ 					$cazary
+-						.on("click", "ul.cazary-commands-list li", function(event)
++						.find("ul.cazary-commands-list li").bind("click", function(event)
+ 						{
+ 							var $target = $(this);
+ 							if($target.hasClass("cazary-disabled"))
+@@ -860,7 +860,7 @@
+ 
+ 					// toggle RTE <-> HTML mode
+ 					$cazary_command_source
+-						.on("click", function()
++						.bind("click", function()
+ 						{
+ 							_toggleMode();
+ 							_setFocus();
+@@ -871,7 +871,7 @@
+ 					{
+ 						var commandName = this.toLowerCase();
+ 						$cazary
+-							.on("click", ".cazary-command-" + commandName, function()
++							.find(".cazary-command-" + commandName).bind("click", function()
+ 							{
+ 								// execute command
+ 								_execCommand(commandName);
+@@ -881,7 +881,7 @@
+ 					{
+ 						var commandName = this.toLowerCase();
+ 						$cazary
+-							.on("click", ".cazary-command-" + commandName, function()
++							.find(".cazary-command-" + commandName).bind("click", function()
+ 							{
+ 								// open panel
+ 								var $target = $(this);
+@@ -1004,7 +1004,7 @@
+ 						{
+ 							// set click event to "li"
+ 							$panel
+-								.on("click", "li", function()
++								.find("li").bind("click", function()
+ 								{
+ 									// execute command
+ 									var $target = $(this);
+@@ -1025,7 +1025,7 @@
+ 								left: offset.left + "px",
+ 								top : offset.top  + "px"
+ 							})
+-							.on("click", function()
++							.bind("click", function()
+ 							{
+ 								// stop bubbling
+ 								return false;
+@@ -1204,10 +1204,11 @@
+ 									)
+ 								);
+ 
+-						return $panel
+-							.on("submit", "form", onsubmit)
+-							.on("click", ".cazary-widget-submit", onsubmit)
+-							.on("keydown paste", ".cazary-widget-insertimage-url", onupdate);
++						$panel.find("form").bind("submit", onsubmit);
++						$panel.find(".cazary-widget-submit").bind("click", onsubmit);
++						$panel.find(".cazary-widget-insertimage-url").bind("keydown paste", onupdate);
++
++						return $panel;
+ 
+ 						function onsubmit()
+ 						{
+@@ -1311,10 +1312,10 @@
+ 									)
+ 								);
+ 
+-						return $panel
+-							.on("submit", "form", onsubmit)
+-							.on("click", ".cazary-widget-submit", onsubmit)
+-							.on("keydown paste", ".cazary-widget-createlink-url", onupdate);
++						$panel.find("form").bind("submit", onsubmit);
++						$panel.find(".cazary-widget-submit").bind("click", onsubmit);
++						$panel.find(".cazary-widget-createlink-url").bind("keydown paste", onupdate);
++						return $panel;
+ 
+ 						function onsubmit()
+ 						{
