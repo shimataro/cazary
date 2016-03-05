@@ -20,10 +20,10 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 ## Supported Languages
 
 * English
-* Japanese
-* Polish
-* Portuguese
-* Brazilian Portuguese
+* [Japanese](src/i18n/ja.yaml)
+* [Polish](src/i18n/pl.yaml)
+* [Portuguese](src/i18n/pt.yaml)
+* [Brazilian Portuguese](src/i18n/pt-br.yaml)
 
 ## How to use
 
