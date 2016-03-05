@@ -15,7 +15,7 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 * [Google Chrome](http://www.google.com/chrome/): Latest version
 * [Opera](http://www.opera.com/): version 12(Presto based), 15([Blink](http://www.chromium.org/blink) based)
 * [Safari for Windows](http://support.apple.com/kb/DL1531): version 5
-* [Safari for Mac](https://www.apple.com/jp/safari/): Latest version (thanks, Brad!)
+* [Safari for Mac](https://www.apple.com/jp/safari/): Latest version
 
 ## Supported Languages
 
@@ -194,3 +194,4 @@ I'm looking for human resources.
 * **Paweł Klockiewicz** - Polish Translation
 * **[Luiz Eduardo Simões](https://github.com/LinkForce)** - Portuguese/Brazilian Portuguese Translation
 * **[GNU FreeFont](https://www.gnu.org/software/freefont/)** - "flat" theme uses FreeSans
+* **Brad** - Testing on Safari for Mac
