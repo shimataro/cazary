@@ -63,7 +63,7 @@ see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
 ### CommonJS method
 
 * Install Cazary by simply typing `npm install cazary`
-* Copy `dist/theme` to public directory (`*.js` is not necessary)
+* Copy `dist/themes` to public directory (`*.js` is not necessary)
 * Load the theme CSS
 * Write JavaScript like this:
 ```js
