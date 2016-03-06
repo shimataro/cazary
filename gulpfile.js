@@ -9,7 +9,7 @@ gulp.task("default", function()
 });
 
 
-// build JS and CSS
+// build all
 gulp.task("build", function()
 {
 	gulp.start(["demo", "js", "css", "image"]);
@@ -21,7 +21,7 @@ gulp.task("demo", function()
 {
 	// generate "demo-legacy.html"
 	var patch = require("apply-patch");
-	patch.applyPatch("./patch/legacy-demo.patch");
+	patch.applyPatch("./patch/demo-legacy.html.patch");
 });
 
 
@@ -30,7 +30,7 @@ gulp.task("js", function()
 {
 	// generate "src/cazary-legacy.js"
 	var patch = require("apply-patch");
-	patch.applyPatch("./patch/legacy-js.patch");
+	patch.applyPatch("./patch/cazary-legacy.js.patch");
 
 	// generate translation data
 	var translation_data = {};
