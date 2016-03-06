@@ -1,5 +1,7 @@
-@charset "UTF-8";
+@charset "utf-8";
 // sass --watch --no-cache --sourcemap=none --style compressed style.scss:style.css
+
+@import "../_mixins.scss";
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -23,79 +25,24 @@ $color-widget-selected-background:  hsl($hue: 215deg, $saturation: 60%, $lightne
 $color-widget-selected-border:      adjust-color($color-widget-selected-background, $saturation: 10%, $lightness: -10%);
 $color-shadow:                      adjust-color(black, $lightness: 50%);
 
-// button configurations
-$arrow-width  : 13px;
-$button-width : 28px;
-$button-height: 28px;
+// size configurations
+$size-arrow-width  : 13px;
+$size-button-width : 28px;
+$size-button-height: 28px;
+$size-input-text-width: 400px;
+$size-color-pallet-width : 12px;
+$size-color-pallet-height: 12px;
+$size-preview-createlink-width : 640px;
+$size-preview-createlink-height: 480px;
 
 // command names and button widths
 // TODO: use associative array in Sass 3.3
-$command-names : bold          italic        underline     strikethrough removeformat  forecolor                    backcolor                    superscript   subscript     justifyleft   justifycenter justifyright  justifyfull   indent        outdent       insertorderedlist insertunorderedlist inserthorizontalrule insertimage                  createlink                   unlink        undo          redo          source;
-$command-widths: $button-width $button-width $button-width $button-width $button-width $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width $button-width     $button-width       $button-width        $button-width + $arrow-width $button-width + $arrow-width $button-width $button-width $button-width $button-width;
+$command-names : bold               italic             underline          strikethrough      removeformat       forecolor                              backcolor                              superscript        subscript          justifyleft        justifycenter      justifyright       justifyfull        indent             outdent            insertorderedlist  insertunorderedlist inserthorizontalrule insertimage                            createlink                             unlink             undo               redo               source;
+$command-widths: $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width + $size-arrow-width $size-button-width + $size-arrow-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width $size-button-width  $size-button-width   $size-button-width + $size-arrow-width $size-button-width + $size-arrow-width $size-button-width $size-button-width $size-button-width $size-button-width;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// mixins
-
-@mixin vendor-prefix($property, $value, $vendors: "o" "ms" "moz" "webkit")
-{
-	@each $vendor in $vendors
-	{
-		-#{$vendor}-#{$property}: $value;
-	}
-	#{$property}: $value;
-}
-@mixin user-select($value: none)
-{
-	@include vendor-prefix("user-select", $value, "ms" "moz" "webkit");
-}
-@mixin border-radius($value)
-{
-	@include vendor-prefix("border-radius", $value, "moz" "webkit");
-}
-@mixin box-shadow($value)
-{
-	@include vendor-prefix("box-shadow", $value, "moz" "webkit");
-}
-
-@mixin inline-block
-{
-	display: inline-block;
-
-	// IE7 Hack
-	*display: inline;
-	*zoom: 1;
-}
-
-@mixin background-image($image, $image-svg: null)
-{
-	background-image: url($image);
-	@if $image-svg != null
-	{
-		background-image: -webkit-linear-gradient(transparent, transparent), url($image-svg);
-		background-image:         linear-gradient(transparent, transparent), url($image-svg);
-	}
-}
-
-@mixin css-sprite($image, $x, $y, $width, $height, $image-svg: null)
-{
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-
-	padding: 0px !important;
-	width: $width;
-	height: $height;
-	background-position: (-$x) (-$y);
-	@include background-image($image, $image-svg);
-}
-@mixin css-sprite-offset($x: 0px, $y: 0px, $offset-x: 0px, $offset-y: 0px)
-{
-	background-position: (-$x - $offset-x) (-$y - $offset-y);
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
+// styles
 
 [unselectable="on"]
 {
@@ -151,8 +98,8 @@ div.cazary
 
 				font-family: sans-serif;
 
-				@include css-sprite("sprite.png", 0, 0, $button-width, $button-height, "sprite.svg");
-				line-height: $button-height;
+				@include css-sprite("sprite.png", 0, 0, $size-button-width, $size-button-height, "sprite.svg");
+				line-height: $size-button-height;
 
 				&:hover
 				{
@@ -180,7 +127,7 @@ div.cazary
 				&.cazary-command-fontsize
 				{
 					width: auto !important;
-					padding: 0px $arrow-width 0px 4px !important;
+					padding: 0px $size-arrow-width 0px 4px !important;
 					text-indent: 0px !important;
 
 					background:
@@ -205,7 +152,7 @@ div.cazary
 
 						&.cazary-disabled
 						{
-							@include css-sprite-offset($offset-x: $offset-x, $offset-y: $button-height);
+							@include css-sprite-offset($offset-x: $offset-x, $offset-y: $size-button-height);
 						}
 					}
 
@@ -273,8 +220,8 @@ div.cazary-panel
 			border: 1px solid $color-panel-background;
 			cursor: pointer;
 
-			width: 12px;
-			height: 12px;
+			width : $size-color-pallet-width;
+			height: $size-color-pallet-height;
 
 			text-indent: 100%;
 			white-space: nowrap;
@@ -291,7 +238,7 @@ div.cazary-panel
 	input.cazary-widget-insertimage-url,
 	input.cazary-widget-createlink-url
 	{
-		width: 400px;
+		width: $size-input-text-width;
 	}
 	img.cazary-widget-insertimage-img
 	{
@@ -302,7 +249,7 @@ div.cazary-panel
 	}
 	iframe.cazary-widget-preview-createlink
 	{
-		width: 640px;
-		height: 480px;
+		width : $size-preview-createlink-width;
+		height: $size-preview-createlink-height;
 	}
 }
