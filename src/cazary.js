@@ -745,7 +745,8 @@
 							["#333333", "#660000", "#993300", "#996633", "#666600", "#006600", "#336666", "#000099", "#333399", "#663366"],
 							["#000000", "#330000", "#663300", "#663333", "#333300", "#003300", "#003333", "#000066", "#330099", "#330033"]
 						],
-						commands: "STANDARD"
+						commands: "STANDARD",
+						eventCommands: {}
 					},
 					options);
 
@@ -806,6 +807,17 @@
 					{
 						_setRteMode();
 					}
+
+					// custom event commands
+					$origin
+						.on("cazary", function(event, command, params)
+						{
+							var handler = options.eventCommands[command];
+							if($.isFunction(handler))
+							{
+								handler.call(this, editor, params);
+							}
+						});
 
 					// editor events
 					$(editor.contentDocument)
