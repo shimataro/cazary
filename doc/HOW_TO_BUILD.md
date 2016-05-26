@@ -5,6 +5,10 @@ How to build
 
 ## 1-1. Install npm
 
+### [Ubuntu 16.04](http://releases.ubuntu.com/16.04/)
+
+    # apt-get install nodejs nodejs-legacy npm
+
 ### [Ubuntu 14.04](http://releases.ubuntu.com/14.04/)
 
     # apt-get install nodejs npm
