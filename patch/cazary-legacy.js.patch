@@ -1,5 +1,5 @@
---- src/cazary.js	2016-05-25 00:00:00.000000000 +0000
-+++ src/cazary-legacy.js	2016-05-25 00:00:00.000000000 +0000
+--- src/cazary.js	2016-05-26 11:13:11.909835374 +0900
++++ src/cazary-legacy.js	2016-05-26 11:16:03.313832437 +0900
 @@ -1,4 +1,4 @@
 -/*! Cazary (jQuery 1.7+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
 +/*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
@@ -20,16 +20,7 @@
  					{
  						if(event.keyCode === KEYCODE_ESCAPE)
  						{
-@@ -810,7 +810,7 @@
- 
- 					// custom event commands
- 					$origin
--						.on("cazary", function(event, command, params)
-+						.bind("cazary", function(event, command, params)
- 						{
- 							var handler = options.eventCommands[command];
- 							if($.isFunction(handler))
-@@ -821,23 +821,23 @@
+@@ -813,23 +813,23 @@
  
  					// editor events
  					$(editor.contentDocument)
@@ -57,7 +48,7 @@
  						{
  							window.setTimeout(function()
  							{
-@@ -847,12 +847,12 @@
+@@ -839,12 +839,12 @@
  						});
  
  					$(editor.contentWindow)
@@ -72,7 +63,7 @@
  						{
  							// update original element when focus is out
  							$origin.val(editor.value());
-@@ -860,7 +860,7 @@
+@@ -852,7 +852,7 @@
  
  					// cancel other handler when command is disabled
  					$cazary
@@ -81,7 +72,7 @@
  						{
  							var $target = $(this);
  							if($target.hasClass("cazary-disabled"))
-@@ -872,7 +872,7 @@
+@@ -864,7 +864,7 @@
  
  					// toggle RTE <-> HTML mode
  					$cazary_command_source
@@ -90,7 +81,7 @@
  						{
  							_toggleMode();
  							_setFocus();
-@@ -883,7 +883,7 @@
+@@ -875,7 +875,7 @@
  					{
  						var commandName = this.toLowerCase();
  						$cazary
@@ -99,7 +90,7 @@
  							{
  								// execute command
  								_execCommand(commandName);
-@@ -893,7 +893,7 @@
+@@ -885,7 +885,7 @@
  					{
  						var commandName = this.toLowerCase();
  						$cazary

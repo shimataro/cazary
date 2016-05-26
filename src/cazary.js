@@ -746,14 +746,17 @@
 							["#000000", "#330000", "#663300", "#663333", "#333300", "#003300", "#003333", "#000066", "#330099", "#330033"]
 						],
 						commands: "STANDARD",
-						eventCommands: {}
+						events: {
+							init: function() {}
+						}
 					},
 					options);
 
 				return this.each(function()
 				{
 					var uniqueId = parseInt(Math.random() * 10000);
-					var $origin = $(this);
+					var  origin =   this;
+					var $origin = $(origin);
 
 					// Cazary object
 					var $cazary = $(CAZARY).css({width: $origin.width()});
@@ -807,17 +810,6 @@
 					{
 						_setRteMode();
 					}
-
-					// custom event commands
-					$origin
-						.on("cazary", function(event, command, params)
-						{
-							var handler = options.eventCommands[command];
-							if($.isFunction(handler))
-							{
-								handler.call(this, editor, params);
-							}
-						});
 
 					// editor events
 					$(editor.contentDocument)
@@ -901,6 +893,14 @@
 								return false;
 							});
 					});
+
+					// fire custom event: init
+					_callEventHandler("init");
+
+					function _callEventHandler(eventName)
+					{
+						options.events[eventName].call(origin, editor);
+					}
 
 					function _execCommand(commandName, parameters)
 					{
