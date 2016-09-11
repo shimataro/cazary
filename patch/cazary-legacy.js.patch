@@ -1,5 +1,5 @@
---- src/cazary.js	2016-05-26 11:13:11.909835374 +0900
-+++ src/cazary-legacy.js	2016-05-26 11:16:03.313832437 +0900
+--- src/cazary.js	2016-03-05 00:00:00.000000000 +0000
++++ src/cazary-legacy.js	2016-03-05 00:00:00.000000000 +0000
 @@ -1,4 +1,4 @@
 -/*! Cazary (jQuery 1.7+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
 +/*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
@@ -20,7 +20,7 @@
  					{
  						if(event.keyCode === KEYCODE_ESCAPE)
  						{
-@@ -813,23 +813,23 @@
+@@ -809,23 +809,23 @@
  
  					// editor events
  					$(editor.contentDocument)
@@ -48,7 +48,7 @@
  						{
  							window.setTimeout(function()
  							{
-@@ -839,12 +839,12 @@
+@@ -835,12 +835,12 @@
  						});
  
  					$(editor.contentWindow)
@@ -63,7 +63,7 @@
  						{
  							// update original element when focus is out
  							$origin.val(editor.value());
-@@ -852,7 +852,7 @@
+@@ -848,7 +848,7 @@
  
  					// cancel other handler when command is disabled
  					$cazary
@@ -72,7 +72,7 @@
  						{
  							var $target = $(this);
  							if($target.hasClass("cazary-disabled"))
-@@ -864,7 +864,7 @@
+@@ -860,7 +860,7 @@
  
  					// toggle RTE <-> HTML mode
  					$cazary_command_source
@@ -81,7 +81,7 @@
  						{
  							_toggleMode();
  							_setFocus();
-@@ -875,7 +875,7 @@
+@@ -871,7 +871,7 @@
  					{
  						var commandName = this.toLowerCase();
  						$cazary
@@ -90,7 +90,7 @@
  							{
  								// execute command
  								_execCommand(commandName);
-@@ -885,7 +885,7 @@
+@@ -881,7 +881,7 @@
  					{
  						var commandName = this.toLowerCase();
  						$cazary
@@ -99,7 +99,7 @@
  							{
  								// open panel
  								var $target = $(this);
-@@ -1016,7 +1016,7 @@
+@@ -1004,7 +1004,7 @@
  						{
  							// set click event to "li"
  							$panel
@@ -108,7 +108,7 @@
  								{
  									// execute command
  									var $target = $(this);
-@@ -1037,7 +1037,7 @@
+@@ -1025,7 +1025,7 @@
  								left: offset.left + "px",
  								top : offset.top  + "px"
  							})
@@ -117,7 +117,7 @@
  							{
  								// stop bubbling
  								return false;
-@@ -1216,10 +1216,11 @@
+@@ -1204,10 +1204,11 @@
  									)
  								);
  
@@ -133,7 +133,7 @@
  
  						function onsubmit()
  						{
-@@ -1323,10 +1324,10 @@
+@@ -1311,10 +1312,10 @@
  									)
  								);
  

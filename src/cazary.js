@@ -745,18 +745,14 @@
 							["#333333", "#660000", "#993300", "#996633", "#666600", "#006600", "#336666", "#000099", "#333399", "#663366"],
 							["#000000", "#330000", "#663300", "#663333", "#333300", "#003300", "#003333", "#000066", "#330099", "#330033"]
 						],
-						commands: "STANDARD",
-						events: {
-							init: function() {}
-						}
+						commands: "STANDARD"
 					},
 					options);
 
 				return this.each(function()
 				{
 					var uniqueId = parseInt(Math.random() * 10000);
-					var  origin =   this;
-					var $origin = $(origin);
+					var $origin = $(this);
 
 					// Cazary object
 					var $cazary = $(CAZARY).css({width: $origin.width()});
@@ -893,14 +889,6 @@
 								return false;
 							});
 					});
-
-					// fire custom event: init
-					_callEventHandler("init");
-
-					function _callEventHandler(eventName)
-					{
-						options.events[eventName].call(origin, editor);
-					}
 
 					function _execCommand(commandName, parameters)
 					{
