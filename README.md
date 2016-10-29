@@ -63,7 +63,7 @@ see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
 ### CommonJS method
 
 * Install Cazary by simply typing `npm install cazary`
-* Copy `dist/theme` to public directory (`*.js` is not necessary)
+* Copy `dist/themes` to public directory (`*.js` is not necessary)
 * Load the theme CSS
 * Write JavaScript like this:
 ```js
@@ -157,6 +157,9 @@ http://github.com/shimataro/cazary
 * [How to translate](doc/HOW_TO_TRANSLATE.md)
 
 ## Release note
+
+* 2016-10-29 *version 1.2.2*
+	* `change` event refreshes WYSIWYG area
 
 * 2016-03-06 *version 1.2.1*
 	* Generate `demo-legacy.html` and `src/cazary-legacy.js` automatically

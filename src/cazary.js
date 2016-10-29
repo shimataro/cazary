@@ -807,6 +807,16 @@
 						_setRteMode();
 					}
 
+					$origin
+						.on("change", function()
+						{
+							// hook "change" event
+							var value = $(this).val();
+							editor.value(value);
+
+							_setEmptyClass();
+						});
+
 					// editor events
 					$(editor.contentDocument)
 						.on("select", function()
@@ -899,11 +909,6 @@
 
 					function _setRteMode()
 					{
-						// set HTML data to RTE
-						var value = $origin.val();
-						editor.value(value);
-						_setEmptyClass();
-
 						// set visibility
 						$origin.hide();
 						$cazary_edit.css("display", "");
