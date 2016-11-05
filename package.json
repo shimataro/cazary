@@ -8,7 +8,8 @@
     "demo": "gulp demo",
     "js": "gulp js",
     "css": "gulp css",
-    "image": "gulp image"
+    "image": "gulp image",
+    "update-packages": "ncu -u"
   },
   "style": "./dist/themes/flat/style.css",
   "repository": {
@@ -42,6 +43,7 @@
     "gulp-svg2png": "^1.0.0",
     "gulp-uglify": "^2.0.0",
     "gulp-yaml": "^1.0.1",
-    "imagemin-pngquant": "^5.0.0"
+    "imagemin-pngquant": "^5.0.0",
+    "npm-check-updates": "^2.8.6"
   }
 }
