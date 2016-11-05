@@ -3,6 +3,10 @@ Cazary
 
 jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, customizable, cross-browser, and multi-language.
 
+[![Gitter](https://badges.gitter.im/shimataro/cazary.svg)](https://gitter.im/shimataro/cazary?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+[![NPM](https://nodei.co/npm/cazary.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cazary/)
+
 ## jQuery version
 
 * [1.7+](http://code.jquery.com/jquery-1.7.js) (cazary.js)
