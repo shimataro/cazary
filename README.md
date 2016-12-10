@@ -2,12 +2,11 @@ Cazary
 ======
 
 [![Join the chat at https://gitter.im/shimataro/cazary](https://badges.gitter.im/shimataro/cazary.svg)](https://gitter.im/shimataro/cazary?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![NPM Downloads](https://img.shields.io/npm/dm/cazary.svg)](https://www.npmjs.com/package/cazary)
 
 jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, customizable, cross-browser, and multi-language.
 
-[![Gitter](https://badges.gitter.im/shimataro/cazary.svg)](https://gitter.im/shimataro/cazary?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-[![NPM](https://nodei.co/npm/cazary.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cazary/)
+[![NPM](https://nodei.co/npm/cazary.svg?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cazary/)
 
 ## jQuery version
 
