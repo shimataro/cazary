@@ -18,8 +18,8 @@
 	/**
 	 * simplified translation function that can be used just like GNU gettext
 	 * @function
-	 * @param {String} text: text to be translated
-	 * @return: {String} translated text
+	 * @param {string} text: text to be translated
+	 * @return: {string} translated text
 	 */
 	const _ = (function()
 	{
@@ -76,8 +76,8 @@
 	/**
 	 * validate email
 	 * @function
-	 * @param {String} string: email
-	 * @return: {Boolean} OK/NG
+	 * @param {string} string: email
+	 * @return: {boolean} OK/NG
 	 */
 	const checkEmail = (function()
 	{
@@ -106,8 +106,8 @@
 	/**
 	 * validate URL
 	 * @function
-	 * @param {String} string: URL
-	 * @return: {Boolean} OK/NG
+	 * @param {string} string: URL
+	 * @return: {boolean} OK/NG
 	 */
 	const checkURL = (function()
 	{
@@ -932,7 +932,7 @@
 
 					/**
 					 * create specified panel
-					 * @param {String} commandName: command name
+					 * @param {string} commandName: command name
 					 * @param {Object} options:     options
 					 * @param {jQuery} $command:    command object
 					 */
