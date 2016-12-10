@@ -1,6 +1,8 @@
 Cazary
 ======
 
+[![Join the chat at https://gitter.im/shimataro/cazary](https://badges.gitter.im/shimataro/cazary.svg)](https://gitter.im/shimataro/cazary?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, customizable, cross-browser, and multi-language.
 
 [![Gitter](https://badges.gitter.im/shimataro/cazary.svg)](https://gitter.im/shimataro/cazary?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
