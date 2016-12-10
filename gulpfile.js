@@ -60,7 +60,7 @@ gulp.task("js", function()
 			var uglify = require("gulp-uglify");
 			var rename = require("gulp-rename");
 			gulp.src("./src/*.es6")
-				.pipe(replace(/\b__TRANSLATION_DATA__\b/g, translation_string))
+				.pipe(replace("{/*@TRANSLATION_DATA@*/}", translation_string))
 				.pipe(babel({
 					presets: ['es2015']
 				}))

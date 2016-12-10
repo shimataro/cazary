@@ -24,7 +24,7 @@
 	const _ = (function()
 	{
 		// NOTE: below placeholder will be replaced by real data in gulp task.
-		const translation_data = __TRANSLATION_DATA__;
+		const translation_data = {/*@TRANSLATION_DATA@*/};
 		const current_translation_data = _getCurrentTranslationData();
 
 		return function(text)
