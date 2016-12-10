@@ -1,5 +1,4 @@
 # temporary files
-.*
 *~
 *.tmp
 *.swp
@@ -10,3 +9,7 @@ node_modules/
 
 # auto-generated files
 src/cazary-legacy.es6
+
+# IDE files
+/.idea/
+/cazary.iml
