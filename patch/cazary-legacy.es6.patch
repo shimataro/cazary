@@ -1,5 +1,5 @@
---- src/cazary.js	2016-09-11 10:55:07.848463552 +0900
-+++ src/cazary-legacy.js	2016-09-11 10:57:33.159930180 +0900
+--- src/cazary.es6	2016-12-09 04:13:00.000000000 +0900
++++ src/cazary-legacy.es6	2016-12-09 04:13:00.000000000 +0900
 @@ -1,4 +1,4 @@
 -/*! Cazary (jQuery 1.7+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
 +/*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */

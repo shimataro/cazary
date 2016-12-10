@@ -9,4 +9,4 @@
 node_modules/
 
 # auto-generated files
-src/cazary-legacy.js
+src/cazary-legacy.es6

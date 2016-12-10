@@ -28,9 +28,9 @@ gulp.task("demo", function()
 // embed translation data and minify
 gulp.task("js", function()
 {
-	// generate "src/cazary-legacy.js"
+	// generate "src/cazary-legacy.es6"
 	var patch = require("apply-patch");
-	patch.applyPatch("./patch/cazary-legacy.js.patch");
+	patch.applyPatch("./patch/cazary-legacy.es6.patch");
 
 	// generate translation data
 	var translation_data = {};
@@ -56,12 +56,21 @@ gulp.task("js", function()
 			var translation_string = JSON.stringify(translation_data);
 
 			var replace = require("gulp-replace");
+			var babel = require("gulp-babel");
 			var uglify = require("gulp-uglify");
 			var rename = require("gulp-rename");
-			gulp.src("./src/*.js")
+			gulp.src("./src/*.es6")
 				.pipe(replace(/\b__TRANSLATION_DATA__\b/g, translation_string))
-				.pipe(uglify({preserveComments: "some"}))
-				.pipe(rename({suffix: ".min"}))
+				.pipe(babel({
+					presets: ['es2015']
+				}))
+				.pipe(uglify({
+					preserveComments: "some"
+				}))
+				.pipe(rename({
+					suffix: ".min",
+					extname: ".js"
+				}))
 				.pipe(gulp.dest(distdir));
 		});
 });
