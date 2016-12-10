@@ -1,12 +1,12 @@
---- src/cazary.js	2016-09-11 10:55:07.848463552 +0900
-+++ src/cazary-legacy.js	2016-09-11 10:57:33.159930180 +0900
+--- src/cazary.es6	2016-12-09 04:13:00.000000000 +0900
++++ src/cazary-legacy.es6	2016-12-09 04:13:00.000000000 +0900
 @@ -1,4 +1,4 @@
 -/*! Cazary (jQuery 1.7+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
 +/*! Cazary (jQuery 1.2.4+) - JavaScript WYSIWYG editor (https://github.com/shimataro/cazary) */
  (function(factory)
  {
  	if(typeof module === "object" && typeof module.exports === "object")
-@@ -712,11 +712,11 @@
+@@ -689,11 +689,11 @@
  			{
  				// window events
  				$(document)
@@ -18,9 +18,9 @@
 -					.on("keydown", function(event)
 +					.bind("keydown", function(event)
  					{
- 						if(event.keyCode === KEYCODE_ESCAPE)
+ 						if(event.keyCode === KEYCODE.ESCAPE)
  						{
-@@ -819,23 +819,23 @@
+@@ -796,23 +796,23 @@
  
  					// editor events
  					$(editor.contentDocument)
@@ -38,7 +38,7 @@
 -						.on("keydown", function(event)
 +						.bind("keydown", function(event)
  						{
- 							if(event.keyCode === KEYCODE_ESCAPE)
+ 							if(event.keyCode === KEYCODE.ESCAPE)
  							{
  								destroyAllPanels();
  							}
@@ -48,7 +48,7 @@
  						{
  							window.setTimeout(function()
  							{
-@@ -845,12 +845,12 @@
+@@ -822,12 +822,12 @@
  						});
  
  					$(editor.contentWindow)
@@ -63,16 +63,16 @@
  						{
  							// update original element when focus is out
  							$origin.val(editor.value());
-@@ -858,7 +858,7 @@
+@@ -835,7 +835,7 @@
  
  					// cancel other handler when command is disabled
  					$cazary
 -						.on("click", "ul.cazary-commands-list li", function(event)
 +						.find("ul.cazary-commands-list li").bind("click", function(event)
  						{
- 							var $target = $(this);
+ 							const $target = $(this);
  							if($target.hasClass("cazary-disabled"))
-@@ -870,7 +870,7 @@
+@@ -847,7 +847,7 @@
  
  					// toggle RTE <-> HTML mode
  					$cazary_command_source
@@ -81,25 +81,25 @@
  						{
  							_toggleMode();
  							_setFocus();
-@@ -881,7 +881,7 @@
+@@ -858,7 +858,7 @@
  					{
- 						var commandName = this.toLowerCase();
+ 						const commandName = this.toLowerCase();
  						$cazary
--							.on("click", ".cazary-command-" + commandName, function()
-+							.find(".cazary-command-" + commandName).bind("click", function()
+-							.on("click", `.cazary-command-${commandName}`, function()
++							.find(`.cazary-command-${commandName}`).bind("click", function()
  							{
  								// execute command
  								_execCommand(commandName);
-@@ -891,7 +891,7 @@
+@@ -868,7 +868,7 @@
  					{
- 						var commandName = this.toLowerCase();
+ 						const commandName = this.toLowerCase();
  						$cazary
--							.on("click", ".cazary-command-" + commandName, function()
-+							.find(".cazary-command-" + commandName).bind("click", function()
+-							.on("click", `.cazary-command-${commandName}`, function()
++							.find(`.cazary-command-${commandName}`).bind("click", function()
  							{
  								// open panel
- 								var $target = $(this);
-@@ -1009,7 +1009,7 @@
+ 								const $target = $(this);
+@@ -986,7 +986,7 @@
  						{
  							// set click event to "li"
  							$panel
@@ -107,17 +107,17 @@
 +								.find("li").bind("click", function()
  								{
  									// execute command
- 									var $target = $(this);
-@@ -1030,7 +1030,7 @@
- 								left: offset.left + "px",
- 								top : offset.top  + "px"
+ 									const $target = $(this);
+@@ -1007,7 +1007,7 @@
+ 								left: `${offset.left}px`,
+ 								top : `${offset.top}px`,
  							})
 -							.on("click", function()
 +							.bind("click", function()
  							{
  								// stop bubbling
  								return false;
-@@ -1209,10 +1209,11 @@
+@@ -1186,10 +1186,11 @@
  									)
  								);
  
@@ -133,7 +133,7 @@
  
  						function onsubmit()
  						{
-@@ -1316,10 +1317,10 @@
+@@ -1293,10 +1294,10 @@
  									)
  								);
  
