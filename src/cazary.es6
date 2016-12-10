@@ -129,38 +129,40 @@
 	 */
 	const EditorCore = (function()
 	{
-		const
-			STATUS_NORMAL   = 0,
-			STATUS_ACTIVE   = 1,
-			STATUS_DISABLED = 2;
+		const STATUS = {
+			NORMAL: 0,
+			ACTIVE: 1,
+			DISABLED: 2,
+		};
 
-		const
-			COMMAND_FONTNAME             = "fontname",
-			COMMAND_FONTSIZE             = "fontsize",
-			COMMAND_BOLD                 = "bold",
-			COMMAND_ITALIC               = "italic",
-			COMMAND_UNDERLINE            = "underline",
-			COMMAND_STRIKETHROUGH        = "strikethrough",
-			COMMAND_REMOVEFORMAT         = "removeformat",
-			COMMAND_FORECOLOR            = "forecolor",
-			COMMAND_BACKCOLOR            = "backcolor",
-			COMMAND_HILITECOLOR          = "hilitecolor",
-			COMMAND_SUPERSCRIPT          = "superscript",
-			COMMAND_SUBSCRIPT            = "subscript",
-			COMMAND_JUSTIFYLEFT          = "justifyleft",
-			COMMAND_JUSTIFYCENTER        = "justifycenter",
-			COMMAND_JUSTIFYRIGHT         = "justifyright",
-			COMMAND_JUSTIFYFULL          = "justifyfull",
-			COMMAND_INDENT               = "indent",
-			COMMAND_OUTDENT              = "outdent",
-			COMMAND_ORDEREDLIST          = "insertorderedlist",
-			COMMAND_UNORDEREDLIST        = "insertunorderedlist",
-			COMMAND_INSERTHORIZONTALRULE = "inserthorizontalrule",
-			COMMAND_INSERTIMAGE          = "insertimage",
-			COMMAND_CREATELINK           = "createlink",
-			COMMAND_UNLINK               = "unlink",
-			COMMAND_UNDO                 = "undo",
-			COMMAND_REDO                 = "redo";
+		const COMMAND = {
+			FONTNAME            : "fontname",
+			FONTSIZE            : "fontsize",
+			BOLD                : "bold",
+			ITALIC              : "italic",
+			UNDERLINE           : "underline",
+			STRIKETHROUGH       : "strikethrough",
+			REMOVEFORMAT        : "removeformat",
+			FORECOLOR           : "forecolor",
+			BACKCOLOR           : "backcolor",
+			HILITECOLOR         : "hilitecolor",
+			SUPERSCRIPT         : "superscript",
+			SUBSCRIPT           : "subscript",
+			JUSTIFYLEFT         : "justifyleft",
+			JUSTIFYCENTER       : "justifycenter",
+			JUSTIFYRIGHT        : "justifyright",
+			JUSTIFYFULL         : "justifyfull",
+			INDENT              : "indent",
+			OUTDENT             : "outdent",
+			ORDEREDLIST         : "insertorderedlist",
+			UNORDEREDLIST       : "insertunorderedlist",
+			INSERTHORIZONTALRULE: "inserthorizontalrule",
+			INSERTIMAGE         : "insertimage",
+			CREATELINK          : "createlink",
+			UNLINK              : "unlink",
+			UNDO                : "undo",
+			REDO                : "redo",
+		};
 
 		return function(edit, value, style)
 		{
@@ -177,34 +179,8 @@
 			let range = null;
 
 			// public properties
-			this.STATUS_NORMAL   = STATUS_NORMAL;
-			this.STATUS_ACTIVE   = STATUS_ACTIVE;
-			this.STATUS_DISABLED = STATUS_DISABLED;
-			this.COMMAND_FONTNAME             = COMMAND_FONTNAME;
-			this.COMMAND_FONTSIZE             = COMMAND_FONTSIZE;
-			this.COMMAND_BOLD                 = COMMAND_BOLD;
-			this.COMMAND_ITALIC               = COMMAND_ITALIC;
-			this.COMMAND_UNDERLINE            = COMMAND_UNDERLINE;
-			this.COMMAND_STRIKETHROUGH        = COMMAND_STRIKETHROUGH;
-			this.COMMAND_REMOVEFORMAT         = COMMAND_REMOVEFORMAT;
-			this.COMMAND_FORECOLOR            = COMMAND_FORECOLOR;
-			this.COMMAND_BACKCOLOR            = COMMAND_BACKCOLOR;
-			this.COMMAND_SUPERSCRIPT          = COMMAND_SUPERSCRIPT;
-			this.COMMAND_SUBSCRIPT            = COMMAND_SUBSCRIPT;
-			this.COMMAND_JUSTIFYLEFT          = COMMAND_JUSTIFYLEFT;
-			this.COMMAND_JUSTIFYCENTER        = COMMAND_JUSTIFYCENTER;
-			this.COMMAND_JUSTIFYRIGHT         = COMMAND_JUSTIFYRIGHT;
-			this.COMMAND_JUSTIFYFULL          = COMMAND_JUSTIFYFULL;
-			this.COMMAND_INDENT               = COMMAND_INDENT;
-			this.COMMAND_OUTDENT              = COMMAND_OUTDENT;
-			this.COMMAND_ORDEREDLIST          = COMMAND_ORDEREDLIST;
-			this.COMMAND_UNORDEREDLIST        = COMMAND_UNORDEREDLIST;
-			this.COMMAND_INSERTHORIZONTALRULE = COMMAND_INSERTHORIZONTALRULE;
-			this.COMMAND_INSERTIMAGE          = COMMAND_INSERTIMAGE;
-			this.COMMAND_CREATELINK           = COMMAND_CREATELINK;
-			this.COMMAND_UNLINK               = COMMAND_UNLINK;
-			this.COMMAND_UNDO                 = COMMAND_UNDO;
-			this.COMMAND_REDO                 = COMMAND_REDO;
+			this.STATUS = STATUS;
+			this.COMMAND = COMMAND;
 
 			this.contentWindow   = contentWindow;
 			this.contentDocument = contentDocument;
@@ -245,9 +221,9 @@
 			function _execCommand(commandName, parameters)
 			{
 				// if browser supports "hilitecolor", use it.
-				if(commandName === COMMAND_BACKCOLOR && _canExecCommand(COMMAND_HILITECOLOR))
+				if(commandName === COMMAND.BACKCOLOR && _canExecCommand(COMMAND.HILITECOLOR))
 				{
-					commandName = COMMAND_HILITECOLOR;
+					commandName = COMMAND.HILITECOLOR;
 				}
 
 				_setFocus();
@@ -310,38 +286,38 @@
 					forecolor: null,
 					backcolor: null,
 
-					bold         : STATUS_NORMAL,
-					italic       : STATUS_NORMAL,
-					underline    : STATUS_NORMAL,
-					strikethrough: STATUS_NORMAL,
+					bold         : STATUS.NORMAL,
+					italic       : STATUS.NORMAL,
+					underline    : STATUS.NORMAL,
+					strikethrough: STATUS.NORMAL,
 
-					superscript: STATUS_NORMAL,
-					subscript  : STATUS_NORMAL,
+					superscript: STATUS.NORMAL,
+					subscript  : STATUS.NORMAL,
 
-					justifyleft  : STATUS_NORMAL,
-					justifycenter: STATUS_NORMAL,
-					justifyright : STATUS_NORMAL,
-					justifyfull  : STATUS_NORMAL,
+					justifyleft  : STATUS.NORMAL,
+					justifycenter: STATUS.NORMAL,
+					justifyright : STATUS.NORMAL,
+					justifyfull  : STATUS.NORMAL,
 
-					insertorderedlist  : STATUS_NORMAL,
-					insertunorderedlist: STATUS_NORMAL,
+					insertorderedlist  : STATUS.NORMAL,
+					insertunorderedlist: STATUS.NORMAL,
 
-					createlink: STATUS_NORMAL,
-					unlink    : STATUS_NORMAL,
+					createlink: STATUS.NORMAL,
+					unlink    : STATUS.NORMAL,
 
-					undo: STATUS_NORMAL,
-					redo: STATUS_NORMAL,
+					undo: STATUS.NORMAL,
+					redo: STATUS.NORMAL,
 				};
 				if(_getSelectedText() === "")
 				{
-					result[COMMAND_CREATELINK] = STATUS_DISABLED;
-					result[COMMAND_UNLINK    ] = STATUS_DISABLED;
+					result[COMMAND.CREATELINK] = STATUS.DISABLED;
+					result[COMMAND.UNLINK    ] = STATUS.DISABLED;
 				}
-				$.each([COMMAND_CREATELINK, COMMAND_UNLINK, COMMAND_UNDO, COMMAND_REDO], function(index, value)
+				$.each([COMMAND.CREATELINK, COMMAND.UNLINK, COMMAND.UNDO, COMMAND.REDO], function(index, value)
 				{
 					if(!_canExecCommand(value))
 					{
-						result[value] = STATUS_DISABLED;
+						result[value] = STATUS.DISABLED;
 					}
 				});
 
@@ -356,52 +332,52 @@
 						{
 						case "b":
 						case "strong":
-							result[COMMAND_BOLD] = STATUS_ACTIVE;
+							result[COMMAND.BOLD] = STATUS.ACTIVE;
 							break;
 
 						case "i":
 						case "em":
-							result[COMMAND_ITALIC] = STATUS_ACTIVE;
+							result[COMMAND.ITALIC] = STATUS.ACTIVE;
 							break;
 
 						case "u":
-							result[COMMAND_UNDERLINE] = STATUS_ACTIVE;
+							result[COMMAND.UNDERLINE] = STATUS.ACTIVE;
 							break;
 
 						case "s":
 						case "strike":
 						case "del":
-							result[COMMAND_STRIKETHROUGH] = STATUS_ACTIVE;
+							result[COMMAND.STRIKETHROUGH] = STATUS.ACTIVE;
 							break;
 
 						case "sup":
-							result[COMMAND_SUPERSCRIPT] = STATUS_ACTIVE;
+							result[COMMAND.SUPERSCRIPT] = STATUS.ACTIVE;
 							break;
 
 						case "sub":
-							result[COMMAND_SUBSCRIPT] = STATUS_ACTIVE;
+							result[COMMAND.SUBSCRIPT] = STATUS.ACTIVE;
 							break;
 
 						case "ol":
-							result[COMMAND_ORDEREDLIST] = STATUS_ACTIVE;
+							result[COMMAND.ORDEREDLIST] = STATUS.ACTIVE;
 							break;
 
 						case "ul":
-							result[COMMAND_UNORDEREDLIST] = STATUS_ACTIVE;
+							result[COMMAND.UNORDEREDLIST] = STATUS.ACTIVE;
 							break;
 
 						case "font":
-							if(node.face.length > 0 && result[COMMAND_FONTNAME] === null)
+							if(node.face.length > 0 && result[COMMAND.FONTNAME] === null)
 							{
-								result[COMMAND_FONTNAME] = node.face;
+								result[COMMAND.FONTNAME] = node.face;
 							}
-							if(node.size.length > 0 && result[COMMAND_FONTSIZE] === null)
+							if(node.size.length > 0 && result[COMMAND.FONTSIZE] === null)
 							{
-								result[COMMAND_FONTSIZE] = node.size;
+								result[COMMAND.FONTSIZE] = node.size;
 							}
-							if(node.color.length > 0 && result[COMMAND_FORECOLOR] === null)
+							if(node.color.length > 0 && result[COMMAND.FORECOLOR] === null)
 							{
-								result[COMMAND_FORECOLOR] = node.color;
+								result[COMMAND.FORECOLOR] = node.color;
 							}
 							break;
 						}
@@ -414,19 +390,19 @@
 						switch(align)
 						{
 						case "left":
-							result[COMMAND_JUSTIFYLEFT] = STATUS_ACTIVE;
+							result[COMMAND.JUSTIFYLEFT] = STATUS.ACTIVE;
 							break;
 
 						case "center":
-							result[COMMAND_JUSTIFYCENTER] = STATUS_ACTIVE;
+							result[COMMAND.JUSTIFYCENTER] = STATUS.ACTIVE;
 							break;
 
 						case "right":
-							result[COMMAND_JUSTIFYRIGHT] = STATUS_ACTIVE;
+							result[COMMAND.JUSTIFYRIGHT] = STATUS.ACTIVE;
 							break;
 
 						case "justify":
-							result[COMMAND_JUSTIFYFULL] = STATUS_ACTIVE;
+							result[COMMAND.JUSTIFYFULL] = STATUS.ACTIVE;
 							break;
 						}
 					}
@@ -438,9 +414,9 @@
 						if(style.fontFamily !== undefined)
 						{
 							const fontFamily = style.fontFamily;
-							if(fontFamily.length > 0 && result[COMMAND_FONTNAME] === null)
+							if(fontFamily.length > 0 && result[COMMAND.FONTNAME] === null)
 							{
-								result[COMMAND_FONTNAME] = fontFamily;
+								result[COMMAND.FONTNAME] = fontFamily;
 							}
 						}
 
@@ -451,7 +427,7 @@
 							{
 							case "bold":
 							case "bolder":
-								result[COMMAND_BOLD] = STATUS_ACTIVE;
+								result[COMMAND.BOLD] = STATUS.ACTIVE;
 								break;
 							}
 						}
@@ -463,7 +439,7 @@
 							{
 							case "italic":
 							case "oblique":
-								result[COMMAND_ITALIC] = STATUS_ACTIVE;
+								result[COMMAND.ITALIC] = STATUS.ACTIVE;
 								break;
 							}
 						}
@@ -473,29 +449,29 @@
 							const textDecoration = style.textDecoration.toLowerCase();
 							if(textDecoration.indexOf("underline") !== -1)
 							{
-								result[COMMAND_UNDERLINE] = STATUS_ACTIVE;
+								result[COMMAND.UNDERLINE] = STATUS.ACTIVE;
 							}
 							if(textDecoration.indexOf("line-through") !== -1)
 							{
-								result[COMMAND_STRIKETHROUGH] = STATUS_ACTIVE;
+								result[COMMAND.STRIKETHROUGH] = STATUS.ACTIVE;
 							}
 						}
 
 						if(style.color !== undefined)
 						{
 							const color = style.color;
-							if(color.length > 0 && result[COMMAND_FORECOLOR] === null)
+							if(color.length > 0 && result[COMMAND.FORECOLOR] === null)
 							{
-								result[COMMAND_FORECOLOR] = color;
+								result[COMMAND.FORECOLOR] = color;
 							}
 						}
 
 						if(style.backgroundColor !== undefined)
 						{
 							const color = style.backgroundColor;
-							if(color.length > 0 && result[COMMAND_BACKCOLOR] === null)
+							if(color.length > 0 && result[COMMAND.BACKCOLOR] === null)
 							{
-								result[COMMAND_BACKCOLOR] = color;
+								result[COMMAND.BACKCOLOR] = color;
 							}
 						}
 
@@ -505,11 +481,11 @@
 							switch(verticalAlign)
 							{
 							case "super":
-								result[COMMAND_SUPERSCRIPT] = STATUS_ACTIVE;
+								result[COMMAND.SUPERSCRIPT] = STATUS.ACTIVE;
 								break;
 
 							case "sub":
-								result[COMMAND_SUBSCRIPT] = STATUS_ACTIVE;
+								result[COMMAND.SUBSCRIPT] = STATUS.ACTIVE;
 								break;
 							}
 						}
@@ -521,19 +497,19 @@
 							switch(textAlign)
 							{
 							case "left":
-								result[COMMAND_JUSTIFYLEFT] = STATUS_ACTIVE;
+								result[COMMAND.JUSTIFYLEFT] = STATUS.ACTIVE;
 								break;
 
 							case "center":
-								result[COMMAND_JUSTIFYCENTER] = STATUS_ACTIVE;
+								result[COMMAND.JUSTIFYCENTER] = STATUS.ACTIVE;
 								break;
 
 							case "right":
-								result[COMMAND_JUSTIFYRIGHT] = STATUS_ACTIVE;
+								result[COMMAND.JUSTIFYRIGHT] = STATUS.ACTIVE;
 								break;
 
 							case "justify":
-								result[COMMAND_JUSTIFYFULL] = STATUS_ACTIVE;
+								result[COMMAND.JUSTIFYFULL] = STATUS.ACTIVE;
 								break;
 							}
 						}
@@ -603,7 +579,7 @@
 
 				if(removeFormat)
 				{
-					_execCommand(COMMAND_REMOVEFORMAT);
+					_execCommand(COMMAND.REMOVEFORMAT);
 				}
 				else
 				{
@@ -627,9 +603,10 @@
 		cazary: (function($)
 		{
 			// keycodes
-			const
-				KEYCODE_ENTER  = 13,
-				KEYCODE_ESCAPE = 27;
+			const KEYCODE = {
+				ENTER: 13,
+				ESCAPE: 27,
+			};
 
 /*
 <div class="cazary">
@@ -718,7 +695,7 @@
 					})
 					.on("keydown", function(event)
 					{
-						if(event.keyCode === KEYCODE_ESCAPE)
+						if(event.keyCode === KEYCODE.ESCAPE)
 						{
 							destroyAllPanels();
 						}
@@ -784,18 +761,18 @@
 					const editor = new EditorCore($cazary_edit.get(0), $origin.val(), style);
 
 					const commands_generic = [
-						editor.COMMAND_BOLD, editor.COMMAND_ITALIC, editor.COMMAND_UNDERLINE, editor.COMMAND_STRIKETHROUGH, editor.COMMAND_REMOVEFORMAT,
-						editor.COMMAND_SUPERSCRIPT, editor.COMMAND_SUBSCRIPT,
-						editor.COMMAND_JUSTIFYLEFT, editor.COMMAND_JUSTIFYCENTER, editor.COMMAND_JUSTIFYRIGHT, editor.COMMAND_JUSTIFYFULL,
-						editor.COMMAND_INDENT, editor.COMMAND_OUTDENT,
-						editor.COMMAND_ORDEREDLIST, editor.COMMAND_UNORDEREDLIST,
-						editor.COMMAND_INSERTHORIZONTALRULE, editor.COMMAND_UNLINK,
-						editor.COMMAND_UNDO, editor.COMMAND_REDO,
+						editor.COMMAND.BOLD, editor.COMMAND.ITALIC, editor.COMMAND.UNDERLINE, editor.COMMAND.STRIKETHROUGH, editor.COMMAND.REMOVEFORMAT,
+						editor.COMMAND.SUPERSCRIPT, editor.COMMAND.SUBSCRIPT,
+						editor.COMMAND.JUSTIFYLEFT, editor.COMMAND.JUSTIFYCENTER, editor.COMMAND.JUSTIFYRIGHT, editor.COMMAND.JUSTIFYFULL,
+						editor.COMMAND.INDENT, editor.COMMAND.OUTDENT,
+						editor.COMMAND.ORDEREDLIST, editor.COMMAND.UNORDEREDLIST,
+						editor.COMMAND.INSERTHORIZONTALRULE, editor.COMMAND.UNLINK,
+						editor.COMMAND.UNDO, editor.COMMAND.REDO,
 					];
 					const commands_with_panel = [
-						editor.COMMAND_FONTNAME, editor.COMMAND_FONTSIZE,
-						editor.COMMAND_FORECOLOR, editor.COMMAND_BACKCOLOR,
-						editor.COMMAND_INSERTIMAGE, editor.COMMAND_CREATELINK,
+						editor.COMMAND.FONTNAME, editor.COMMAND.FONTSIZE,
+						editor.COMMAND.FORECOLOR, editor.COMMAND.BACKCOLOR,
+						editor.COMMAND.INSERTIMAGE, editor.COMMAND.CREATELINK,
 					];
 
 					if(options.mode === "html")
@@ -830,7 +807,7 @@
 						})
 						.on("keydown", function(event)
 						{
-							if(event.keyCode === KEYCODE_ESCAPE)
+							if(event.keyCode === KEYCODE.ESCAPE)
 							{
 								destroyAllPanels();
 							}
@@ -977,27 +954,27 @@
 						let list = false;
 						switch(commandName)
 						{
-						case editor.COMMAND_FONTNAME:
+						case editor.COMMAND.FONTNAME:
 							$panel = createPanel_fontname(commandName, options.fontnames);
 							list = true;
 							break;
 
-						case editor.COMMAND_FONTSIZE:
+						case editor.COMMAND.FONTSIZE:
 							$panel = createPanel_fontsize(commandName);
 							list = true;
 							break;
 
-						case editor.COMMAND_FORECOLOR:
-						case editor.COMMAND_BACKCOLOR:
+						case editor.COMMAND.FORECOLOR:
+						case editor.COMMAND.BACKCOLOR:
 							$panel = createPanel_color(commandName, options.colors);
 							list = true;
 							break;
 
-						case editor.COMMAND_INSERTIMAGE:
+						case editor.COMMAND.INSERTIMAGE:
 							$panel = createPanel_insertimage(commandName);
 							break;
 
-						case editor.COMMAND_CREATELINK:
+						case editor.COMMAND.CREATELINK:
 							$panel = createPanel_createlink(commandName);
 							break;
 
@@ -1388,7 +1365,7 @@
 							const $element = $cazary.find(`.cazary-command-${name}`);
 
 							// set font name
-							if(name === editor.COMMAND_FONTNAME)
+							if(name === editor.COMMAND.FONTNAME)
 							{
 								let title = value;
 								if(title === null)
@@ -1401,7 +1378,7 @@
 							}
 
 							// set font size
-							if(name === editor.COMMAND_FONTSIZE)
+							if(name === editor.COMMAND.FONTSIZE)
 							{
 								let title = value;
 								if(title === null)
@@ -1418,7 +1395,7 @@
 							}
 
 							// set font color
-							if(name === editor.COMMAND_FORECOLOR || name === editor.COMMAND_BACKCOLOR)
+							if(name === editor.COMMAND.FORECOLOR || name === editor.COMMAND.BACKCOLOR)
 							{
 								const $command = $cazary.find(`.cazary-command-${name}`);
 								const color = (value === null) ? "" : value;
@@ -1426,7 +1403,7 @@
 								continue;
 							}
 
-							if(value === editor.STATUS_ACTIVE)
+							if(value === editor.STATUS.ACTIVE)
 							{
 								$element.addClass("cazary-active");
 							}
@@ -1434,7 +1411,7 @@
 							{
 								$element.removeClass("cazary-active");
 							}
-							if(value === editor.STATUS_DISABLED)
+							if(value === editor.STATUS.DISABLED)
 							{
 								$element.addClass("cazary-disabled");
 							}
