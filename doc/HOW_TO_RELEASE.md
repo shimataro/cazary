@@ -35,7 +35,8 @@ git tag v<version>
 
 ## Push changes
 ```bash
-git push --tags
+git push origin
+git push origin --tags
 ```
 
 ## Release on GitHub
