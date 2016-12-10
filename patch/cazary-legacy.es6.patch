@@ -70,7 +70,7 @@
 -						.on("click", "ul.cazary-commands-list li", function(event)
 +						.find("ul.cazary-commands-list li").bind("click", function(event)
  						{
- 							var $target = $(this);
+ 							const $target = $(this);
  							if($target.hasClass("cazary-disabled"))
 @@ -870,7 +870,7 @@
  
@@ -83,22 +83,22 @@
  							_setFocus();
 @@ -881,7 +881,7 @@
  					{
- 						var commandName = this.toLowerCase();
+ 						const commandName = this.toLowerCase();
  						$cazary
--							.on("click", ".cazary-command-" + commandName, function()
-+							.find(".cazary-command-" + commandName).bind("click", function()
+-							.on("click", `.cazary-command-${commandName}`, function()
++							.find(`.cazary-command-${commandName}`).bind("click", function()
  							{
  								// execute command
  								_execCommand(commandName);
 @@ -891,7 +891,7 @@
  					{
- 						var commandName = this.toLowerCase();
+ 						const commandName = this.toLowerCase();
  						$cazary
--							.on("click", ".cazary-command-" + commandName, function()
-+							.find(".cazary-command-" + commandName).bind("click", function()
+-							.on("click", `.cazary-command-${commandName}`, function()
++							.find(`.cazary-command-${commandName}`).bind("click", function()
  							{
  								// open panel
- 								var $target = $(this);
+ 								const $target = $(this);
 @@ -1009,7 +1009,7 @@
  						{
  							// set click event to "li"
@@ -107,10 +107,10 @@
 +								.find("li").bind("click", function()
  								{
  									// execute command
- 									var $target = $(this);
+ 									const $target = $(this);
 @@ -1030,7 +1030,7 @@
- 								left: offset.left + "px",
- 								top : offset.top  + "px"
+ 								left: `${offset.left}px`,
+ 								top : `${offset.top}px`,
  							})
 -							.on("click", function()
 +							.bind("click", function()

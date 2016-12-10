@@ -13,7 +13,7 @@
 (function($, window, undefined)
 {
 	"use strict";
-	var document = window.document;
+	const document = window.document;
 
 	/**
 	 * simplified translation function that can be used just like GNU gettext
@@ -21,11 +21,11 @@
 	 * @param {String} text: text to be translated
 	 * @return: {String} translated text
 	 */
-	var _ = (function()
+	const _ = (function()
 	{
 		// NOTE: below placeholder will be replaced by real data in gulp task.
-		var translation_data = __TRANSLATION_DATA__;
-		var current_translation_data = _getCurrentTranslationData();
+		const translation_data = __TRANSLATION_DATA__;
+		const current_translation_data = _getCurrentTranslationData();
 
 		return function(text)
 		{
@@ -38,8 +38,8 @@
 
 		function _getCurrentTranslationData()
 		{
-			var language = _detectBrowserLanguage().toLowerCase();
-			var result = translation_data[language];
+			let language = _detectBrowserLanguage().toLowerCase();
+			let result = translation_data[language];
 			if(result !== undefined)
 			{
 				return result;
@@ -63,7 +63,7 @@
 		{
 			try
 			{
-				var navigator = window.navigator;
+				const navigator = window.navigator;
 				return (navigator.browserLanguage || navigator.language || navigator.userLanguage);
 			}
 			catch(e)
@@ -79,9 +79,9 @@
 	 * @param {String} string: email
 	 * @return: {Boolean} OK/NG
 	 */
-	var checkEmail = (function()
+	const checkEmail = (function()
 	{
-		var regexp = /^[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~](\.?[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~])*@([\w\-]+\.)+(\w+)$/;
+		const regexp = /^[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~](\.?[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~])*@([\w\-]+\.)+(\w+)$/;
 
 		return function(string)
 		{
@@ -109,9 +109,9 @@
 	 * @param {String} string: URL
 	 * @return: {Boolean} OK/NG
 	 */
-	var checkURL = (function()
+	const checkURL = (function()
 	{
-		var regexp = /^https?:\/\//;
+		const regexp = /^https?:\/\//;
 
 		return function(string)
 		{
@@ -127,14 +127,14 @@
 	 * Editor Component
 	 * @class
 	 */
-	var EditorCore = (function()
+	const EditorCore = (function()
 	{
-		var
+		const
 			STATUS_NORMAL   = 0,
 			STATUS_ACTIVE   = 1,
 			STATUS_DISABLED = 2;
 
-		var
+		const
 			COMMAND_FONTNAME             = "fontname",
 			COMMAND_FONTSIZE             = "fontsize",
 			COMMAND_BOLD                 = "bold",
@@ -165,8 +165,8 @@
 		return function(edit, value, style)
 		{
 			// init
-			var contentWindow   = edit.contentWindow;
-			var contentDocument = contentWindow.document;
+			let contentWindow   = edit.contentWindow;
+			let contentDocument = contentWindow.document;
 			if(edit.contentDocument)
 			{
 				// if contentDocument exists, W3C compliant
@@ -174,7 +174,7 @@
 			}
 
 			// TextRange object (selected range for IE)
-			var range = null;
+			let range = null;
 
 			// public properties
 			this.STATUS_NORMAL   = STATUS_NORMAL;
@@ -233,7 +233,7 @@
 	<body></body>
 </html>
 */
-				var iframehtml = '<!DOCTYPE html><html><head><meta charset="UTF-8" /><style type="text/css">' + style + '</style></head><body></body></html>';
+				const iframehtml = `<!DOCTYPE html><html><head><meta charset="UTF-8" /><style type="text/css">${style}</style></head><body></body></html>`;
 
 //				contentDocument.body.contentEditable = true;
 				contentDocument.designMode = "on";
@@ -279,7 +279,7 @@
 
 			function _getValue()
 			{
-				var html = contentDocument.body.innerHTML;
+				let html = contentDocument.body.innerHTML;
 
 				// replace tags
 				html = html
@@ -303,7 +303,7 @@
 
 			function _getCurrentStatus()
 			{
-				var result = {
+				const result = {
 					fontname: null,
 					fontsize: null,
 
@@ -330,7 +330,7 @@
 					unlink    : STATUS_NORMAL,
 
 					undo: STATUS_NORMAL,
-					redo: STATUS_NORMAL
+					redo: STATUS_NORMAL,
 				};
 				if(_getSelectedText() === "")
 				{
@@ -345,13 +345,13 @@
 					}
 				});
 
-				var node = _getCurrentNode();
+				let node = _getCurrentNode();
 				while(node !== null)
 				{
 					// check tag
 					if(node.tagName !== undefined)
 					{
-						var tagName = node.tagName.toLowerCase();
+						const tagName = node.tagName.toLowerCase();
 						switch(tagName)
 						{
 						case "b":
@@ -410,7 +410,7 @@
 					// check general attributes
 					if(node.align !== undefined)
 					{
-						var align = node.align.toLowerCase();
+						const align = node.align.toLowerCase();
 						switch(align)
 						{
 						case "left":
@@ -434,10 +434,10 @@
 					// check CSS
 					if(node.style !== undefined)
 					{
-						var style = node.style;
+						const style = node.style;
 						if(style.fontFamily !== undefined)
 						{
-							var fontFamily = style.fontFamily;
+							const fontFamily = style.fontFamily;
 							if(fontFamily.length > 0 && result[COMMAND_FONTNAME] === null)
 							{
 								result[COMMAND_FONTNAME] = fontFamily;
@@ -446,7 +446,7 @@
 
 						if(style.fontWeight !== undefined)
 						{
-							var fontWeight = style.fontWeight.toLowerCase();
+							const fontWeight = style.fontWeight.toLowerCase();
 							switch(fontWeight)
 							{
 							case "bold":
@@ -458,7 +458,7 @@
 
 						if(style.fontStyle !== undefined)
 						{
-							var fontStyle = style.fontStyle.toLowerCase();
+							const fontStyle = style.fontStyle.toLowerCase();
 							switch(fontStyle)
 							{
 							case "italic":
@@ -470,7 +470,7 @@
 
 						if(style.textDecoration !== undefined)
 						{
-							var textDecoration = style.textDecoration.toLowerCase();
+							const textDecoration = style.textDecoration.toLowerCase();
 							if(textDecoration.indexOf("underline") !== -1)
 							{
 								result[COMMAND_UNDERLINE] = STATUS_ACTIVE;
@@ -483,7 +483,7 @@
 
 						if(style.color !== undefined)
 						{
-							var color = style.color;
+							const color = style.color;
 							if(color.length > 0 && result[COMMAND_FORECOLOR] === null)
 							{
 								result[COMMAND_FORECOLOR] = color;
@@ -492,7 +492,7 @@
 
 						if(style.backgroundColor !== undefined)
 						{
-							var color = style.backgroundColor;
+							const color = style.backgroundColor;
 							if(color.length > 0 && result[COMMAND_BACKCOLOR] === null)
 							{
 								result[COMMAND_BACKCOLOR] = color;
@@ -501,7 +501,7 @@
 
 						if(style.verticalAlign !== undefined)
 						{
-							var verticalAlign = style.verticalAlign.toLowerCase();
+							const verticalAlign = style.verticalAlign.toLowerCase();
 							switch(verticalAlign)
 							{
 							case "super":
@@ -517,7 +517,7 @@
 						// block
 						if(style.textAlign !== undefined)
 						{
-							var textAlign = style.textAlign.toLowerCase();
+							const textAlign = style.textAlign.toLowerCase();
 							switch(textAlign)
 							{
 							case "left":
@@ -553,7 +553,7 @@
 
 			function _getCurrentStyle()
 			{
-				var node = _getCurrentNode();
+				const node = _getCurrentNode();
 				if(node === null)
 				{
 					return null;
@@ -574,7 +574,7 @@
 			{
 				if(contentWindow.getSelection)
 				{
-					var selection = contentWindow.getSelection();
+					const selection = contentWindow.getSelection();
 					if(selection === null || selection.rangeCount === 0)
 					{
 						return "";
@@ -591,8 +591,8 @@
 			{
 				if(contentWindow.getSelection)
 				{
-					var node      = contentDocument.createTextNode(text);
-					var selection = contentWindow.getSelection();
+					const node      = contentDocument.createTextNode(text);
+					const selection = contentWindow.getSelection();
 					selection.deleteFromDocument();
 					selection.getRangeAt(0).insertNode(node);
 				}
@@ -627,7 +627,7 @@
 		cazary: (function($)
 		{
 			// keycodes
-			var
+			const
 				KEYCODE_ENTER  = 13,
 				KEYCODE_ESCAPE = 27;
 
@@ -638,10 +638,10 @@
 	<!-- original textarea is here -->
 </div>
 */
-			var CAZARY = '<div class="cazary"><iframe class="cazary-edit" src="javascript:" style="display:none;"></iframe></div>';
+			const CAZARY = '<div class="cazary"><iframe class="cazary-edit" src="javascript:" style="display:none;"></iframe></div>';
 
 			// command => name
-			var ASSOC_COMMANDNAMES = {
+			const ASSOC_COMMANDNAMES = {
 				separator: "",
 
 				fontname: "Font",
@@ -678,25 +678,25 @@
 				undo: "Undo",
 				redo: "Redo",
 
-				source: "Show Source"
+				source: "Show Source",
 			};
 			/* font sizes */
-			var ASSOC_FONTSIZES = {
+			const ASSOC_FONTSIZES = {
 				1: "Size 1",
 				2: "Size 2",
 				3: "Size 3",
 				4: "Size 4",
 				5: "Size 5",
 				6: "Size 6",
-				7: "Size 7"
+				7: "Size 7",
 			};
 			/* pre-defined macros */
-			var PRE_DEFINED_MACROS = {
+			const PRE_DEFINED_MACROS = {
 				"MINIMAL" : ["bold italic underline strikethrough removeformat"],
 				"STANDARD": [
 					"fontname fontsize",
 					"bold italic underline strikethrough removeformat | forecolor backcolor | superscript subscript",
-					"source"
+					"source",
 				],
 				"FULL": [
 					"fontname fontsize",
@@ -704,8 +704,8 @@
 					"justifyleft justifycenter justifyright justifyfull | indent outdent | insertorderedlist insertunorderedlist",
 					"inserthorizontalrule insertimage createlink unlink",
 					"undo redo",
-					"source"
-				]
+					"source",
+				],
 			};
 
 			$(function($)
@@ -734,7 +734,7 @@
 						fontnames: [
 							"sans-serif", "serif", "cursive", "fantasy", "monospace",
 							"Arial", "Arial Black", "Comic Sans MS", "Courier New", "Narrow", "Garamond",
-							"Georgia", "Impact", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana"
+							"Georgia", "Impact", "Tahoma", "Times New Roman", "Trebuchet MS", "Verdana",
 						],
 						colors: [
                     		["#ffffff", "#ffcccc", "#ffcc99", "#ffff99", "#ffffcc", "#99ff99", "#99ffff", "#ccffff", "#ccccff", "#ffccff"],
@@ -743,27 +743,27 @@
 							["#999999", "#cc0000", "#ff6600", "#ffcc33", "#ffcc00", "#33cc00", "#00cccc", "#3366ff", "#6633ff", "#cc33cc"],
 							["#666666", "#990000", "#cc6600", "#cc9933", "#999900", "#009900", "#339999", "#3333ff", "#6600cc", "#993399"],
 							["#333333", "#660000", "#993300", "#996633", "#666600", "#006600", "#336666", "#000099", "#333399", "#663366"],
-							["#000000", "#330000", "#663300", "#663333", "#333300", "#003300", "#003333", "#000066", "#330099", "#330033"]
+							["#000000", "#330000", "#663300", "#663333", "#333300", "#003300", "#003333", "#000066", "#330099", "#330033"],
 						],
-						commands: "STANDARD"
+						commands: "STANDARD",
 					},
 					options);
 
 				return this.each(function()
 				{
-					var uniqueId = parseInt(Math.random() * 10000);
-					var $origin = $(this);
+					const uniqueId = parseInt(Math.random() * 10000);
+					const $origin = $(this);
 
 					// Cazary object
-					var $cazary = $(CAZARY).css({width: $origin.width()});
+					const $cazary = $(CAZARY).css({width: $origin.width()});
 					$cazary.prepend(createCommandsWrapper(options.commands));
 
 					// editor object
-					var $cazary_edit = $cazary.find(".cazary-edit").css({height: $origin.height()});
+					const $cazary_edit = $cazary.find(".cazary-edit").css({height: $origin.height()});
 
 					// source command & others
-					var $cazary_command_source         = $cazary.find("ul.cazary-commands-list li.cazary-command-source");
-					var $cazary_commands_except_source = $cazary.find("ul.cazary-commands-list li:not(.cazary-command-source)");
+					const $cazary_command_source         = $cazary.find("ul.cazary-commands-list li.cazary-command-source");
+					const $cazary_commands_except_source = $cazary.find("ul.cazary-commands-list li:not(.cazary-command-source)");
 
 					// set objects
 					$origin
@@ -774,28 +774,28 @@
 					;
 
 					// add style for placeholder
-					var style = options.style;
-					var placeholder_text = $origin.attr("placeholder");
+					let style = options.style;
+					let placeholder_text = $origin.attr("placeholder");
 					if(placeholder_text !== undefined)
 					{
 						placeholder_text = placeholder_text.replace("'", "\\'");
-						style += "body.empty:before{position:fixed;color:#888;content:'" + placeholder_text + "';}";
+						style += `body.empty:before{position:fixed;color:#888;content:'${placeholder_text}';}`;
 					}
-					var editor = new EditorCore($cazary_edit.get(0), $origin.val(), style);
+					const editor = new EditorCore($cazary_edit.get(0), $origin.val(), style);
 
-					var commands_generic = [
+					const commands_generic = [
 						editor.COMMAND_BOLD, editor.COMMAND_ITALIC, editor.COMMAND_UNDERLINE, editor.COMMAND_STRIKETHROUGH, editor.COMMAND_REMOVEFORMAT,
 						editor.COMMAND_SUPERSCRIPT, editor.COMMAND_SUBSCRIPT,
 						editor.COMMAND_JUSTIFYLEFT, editor.COMMAND_JUSTIFYCENTER, editor.COMMAND_JUSTIFYRIGHT, editor.COMMAND_JUSTIFYFULL,
 						editor.COMMAND_INDENT, editor.COMMAND_OUTDENT,
 						editor.COMMAND_ORDEREDLIST, editor.COMMAND_UNORDEREDLIST,
 						editor.COMMAND_INSERTHORIZONTALRULE, editor.COMMAND_UNLINK,
-						editor.COMMAND_UNDO, editor.COMMAND_REDO
+						editor.COMMAND_UNDO, editor.COMMAND_REDO,
 					];
-					var commands_with_panel = [
+					const commands_with_panel = [
 						editor.COMMAND_FONTNAME, editor.COMMAND_FONTSIZE,
 						editor.COMMAND_FORECOLOR, editor.COMMAND_BACKCOLOR,
-						editor.COMMAND_INSERTIMAGE, editor.COMMAND_CREATELINK
+						editor.COMMAND_INSERTIMAGE, editor.COMMAND_CREATELINK,
 					];
 
 					if(options.mode === "html")
@@ -811,7 +811,7 @@
 						.on("change", function()
 						{
 							// hook "change" event
-							var value = $(this).val();
+							const value = $(this).val();
 							editor.value(value);
 
 							_setEmptyClass();
@@ -860,7 +860,7 @@
 					$cazary
 						.on("click", "ul.cazary-commands-list li", function(event)
 						{
-							var $target = $(this);
+							const $target = $(this);
 							if($target.hasClass("cazary-disabled"))
 							{
 								event.stopImmediatePropagation();
@@ -879,9 +879,9 @@
 					// command handler
 					$.each(commands_generic, function()
 					{
-						var commandName = this.toLowerCase();
+						const commandName = this.toLowerCase();
 						$cazary
-							.on("click", ".cazary-command-" + commandName, function()
+							.on("click", `.cazary-command-${commandName}`, function()
 							{
 								// execute command
 								_execCommand(commandName);
@@ -889,12 +889,12 @@
 					});
 					$.each(commands_with_panel, function()
 					{
-						var commandName = this.toLowerCase();
+						const commandName = this.toLowerCase();
 						$cazary
-							.on("click", ".cazary-command-" + commandName, function()
+							.on("click", `.cazary-command-${commandName}`, function()
 							{
 								// open panel
-								var $target = $(this);
+								const $target = $(this);
 								createPanel(commandName, options, $target);
 								return false;
 							});
@@ -920,7 +920,7 @@
 
 					function _setHtmlMode()
 					{
-						var html = editor.value();
+						const html = editor.value();
 						$origin.val(html);
 
 						$cazary_edit.hide();
@@ -961,11 +961,11 @@
 					 */
 					function createPanel(commandName, options, $command)
 					{
-						var $panel = $(".cazary-panel");
+						let $panel = $(".cazary-panel");
 						if($panel.length > 0)
 						{
-							var uniqueId_panel    = $panel.data("id");
-							var commandName_panel = $panel.data("command");
+							const uniqueId_panel    = $panel.data("id");
+							const commandName_panel = $panel.data("command");
 							destroyAllPanels();
 							if(commandName_panel === commandName && uniqueId_panel === uniqueId)
 							{
@@ -974,7 +974,7 @@
 							}
 						}
 
-						var list = false;
+						let list = false;
 						switch(commandName)
 						{
 						case editor.COMMAND_FONTNAME:
@@ -1012,23 +1012,23 @@
 								.on("click", "li", function()
 								{
 									// execute command
-									var $target = $(this);
-									var param = $target.data("param");
+									const $target = $(this);
+									const param = $target.data("param");
 									_execCommand(commandName, param);
 								});
 						}
 
 						// set class and position and
-						var offset = $command.addClass("cazary-active").offset();
+						const offset = $command.addClass("cazary-active").offset();
 						offset.top += $command.outerHeight();
 						$panel
 							.addClass("cazary-panel")
-							.addClass("cazary-panel-" + commandName)
+							.addClass(`cazary-panel-${commandName}`)
 							.data("id", uniqueId)
 							.data("command", commandName)
 							.css({
-								left: offset.left + "px",
-								top : offset.top  + "px"
+								left: `${offset.left}px`,
+								top : `${offset.top}px`,
 							})
 							.on("click", function()
 							{
@@ -1052,17 +1052,17 @@
 	</ul>
 </div>
 */
-						var $ul = $("<ul />").addClass("cazary-widget-select");
+						const $ul = $("<ul />").addClass("cazary-widget-select");
 						$.each(fontnames, function()
 						{
-							var fontName = this.toString();
-							var $li = $("<li />")
+							const fontName = this.toString();
+							const $li = $("<li />")
 								.attr({
 									"unselectable": "on",
-									"title": fontName
+									"title": fontName,
 								})
 								.css({
-									"font-family": fontName
+									"font-family": fontName,
 								})
 								.data("param", fontName)
 								.text(fontName);
@@ -1087,22 +1087,22 @@
 	</ul>
 </div>
 */
-						var $ul = $("<ul />").addClass("cazary-widget-select");
+						const $ul = $("<ul />").addClass("cazary-widget-select");
 						$.each(ASSOC_FONTSIZES, function(param, text)
 						{
-							var text = _(text);
-							var $li = $("<li />")
+							const _text = _(text);
+							const $li = $("<li />")
 								.attr({
 									"unselectable": "on",
-									"title": text
+									"title": _text,
 								})
 								.data("param", param);
 
-							var $font = $("<font />")
+							const $font = $("<font />")
 								.attr({
 									"size": param
 								})
-								.text(text)
+								.text(text);
 
 							$ul.append($li.append($font));
 						});
@@ -1123,21 +1123,21 @@
 	</ul>
 </div>
 */
-						var $panel = $("<div>");
+						const $panel = $("<div>");
 
 						$.each(colors, function()
 						{
-							var $ul = $("<ul />").addClass("cazary-widget-select-color");
+							const $ul = $("<ul />").addClass("cazary-widget-select-color");
 							$.each(this, function()
 							{
-								var colorName = this.toString();
-								var $li = $("<li />")
+								const colorName = this.toString();
+								const $li = $("<li />")
 									.attr({
 										"unselectable": "on",
-										"title": colorName
+										"title": colorName,
 									})
 									.css({
-										"background-color": colorName
+										"background-color": colorName,
 									})
 									.data("param", colorName)
 									.text(colorName);
@@ -1168,7 +1168,7 @@
 	</form>
 </div>
 */
-						var $panel = $("<div>")
+						const $panel = $("<div>")
 							.append(
 								$("<form />")
 									.attr("action", "#")
@@ -1185,7 +1185,7 @@
 															.addClass("cazary-widget-insertimage-url")
 															.attr({
 																"required": "required",
-																"placeholder": _("http://example.com/path/to/image.jpg")
+																"placeholder": _("http://example.com/path/to/image.jpg"),
 															})
 													)
 											)
@@ -1216,8 +1216,8 @@
 
 						function onsubmit()
 						{
-							var $url = $panel.find(".cazary-widget-insertimage-url");
-							var  url = $url.val();
+							const $url = $panel.find(".cazary-widget-insertimage-url");
+							const  url = $url.val();
 							if(!checkURL(url))
 							{
 								$url.trigger("focus");
@@ -1229,18 +1229,18 @@
 
 						function onupdate()
 						{
-							var $url = $(this);
+							const $url = $(this);
 							window.setTimeout(function()
 							{
-								var dataName = "url_old";
-								var url     = $url.val();
-								var url_old = $url.data(dataName);
+								const dataName = "url_old";
+								const url     = $url.val();
+								const url_old = $url.data(dataName);
 								if(url === url_old)
 								{
 									return;
 								}
 								$url.data(dataName, url);
-								var $preview = $panel.find(".cazary-widget-preview");
+								const $preview = $panel.find(".cazary-widget-preview");
 								if(checkURL(url))
 								{
 									$preview.show();
@@ -1275,7 +1275,7 @@
 	</form>
 </div>
 */
-						var $panel = $("<div>")
+						const $panel = $("<div>")
 							.append(
 								$("<form />")
 									.attr("action", "#")
@@ -1292,7 +1292,7 @@
 															.addClass("cazary-widget-createlink-url")
 															.attr({
 																"required": "required",
-																"placeholder": _("http://example.com/, someone@example.com")
+																"placeholder": _("http://example.com/, someone@example.com"),
 															})
 													)
 											)
@@ -1323,11 +1323,11 @@
 
 						function onsubmit()
 						{
-							var $url = $panel.find(".cazary-widget-createlink-url");
-							var  url = $url.val();
+							const $url = $panel.find(".cazary-widget-createlink-url");
+							let url = $url.val();
 							if(checkEmail(url))
 							{
-								url = "mailto:" + url;
+								url = `mailto:${url}`;
 							}
 							else if(!checkURL(url))
 							{
@@ -1340,18 +1340,18 @@
 
 						function onupdate()
 						{
-							var $url = $(this);
+							const $url = $(this);
 							window.setTimeout(function()
 							{
-								var dataName = "url_old";
-								var url     = $url.val();
-								var url_old = $url.data(dataName);
+								const dataName = "url_old";
+								const url     = $url.val();
+								const url_old = $url.data(dataName);
 								if(url === url_old)
 								{
 									return;
 								}
 								$url.data(dataName, url);
-								var $preview = $panel.find(".cazary-widget-preview");
+								const $preview = $panel.find(".cazary-widget-preview");
 								if(checkURL(url))
 								{
 									$preview.show();
@@ -1381,16 +1381,16 @@
 					 */
 					function _updateCommandStatus()
 					{
-						var status = editor.getCurrentStatus();
-						for(var name in status)
+						const status = editor.getCurrentStatus();
+						for(const name in status)
 						{
-							var value = status[name];
-							var $element = $cazary.find(".cazary-command-" + name);
+							let value = status[name];
+							const $element = $cazary.find(`.cazary-command-${name}`);
 
 							// set font name
 							if(name === editor.COMMAND_FONTNAME)
 							{
-								var title = value;
+								let title = value;
 								if(title === null)
 								{
 									value = "";
@@ -1403,7 +1403,7 @@
 							// set font size
 							if(name === editor.COMMAND_FONTSIZE)
 							{
-								var title = value;
+								let title = value;
 								if(title === null)
 								{
 									value = "";
@@ -1420,16 +1420,9 @@
 							// set font color
 							if(name === editor.COMMAND_FORECOLOR || name === editor.COMMAND_BACKCOLOR)
 							{
-								var $command = $cazary.find(".cazary-command-" + name);
-								var color = value;
-								if(color === null)
-								{
-									$cazary.find(".cazary-command-" + name).css("background-color", "");
-								}
-								else
-								{
-									$cazary.find(".cazary-command-" + name).css("background-color", color);
-								}
+								const $command = $cazary.find(`.cazary-command-${name}`);
+								const color = (value === null) ? "" : value;
+								$command.css("background-color", color);
 								continue;
 							}
 
@@ -1472,7 +1465,7 @@
 					 */
 					function _setEmptyClass()
 					{
-						var $body = $(editor.contentDocument.body);
+						const $body = $(editor.contentDocument.body);
 						if($body.text().length === 0)
 						{
 							$body.addClass("empty");
@@ -1512,14 +1505,14 @@
 					}
 				}
 
-				var $obj = $("<div />").addClass("cazary-commands-wrapper");
+				const $obj = $("<div />").addClass("cazary-commands-wrapper");
 				$.each(commands, function()
 				{
-					var $ul = $("<ul />").addClass("cazary-commands-list");
-					var command_list = this.toLowerCase().split(" ");
+					const $ul = $("<ul />").addClass("cazary-commands-list");
+					const command_list = this.toLowerCase().split(" ");
 					$.each(command_list, function()
 					{
-						var command = this.toString();
+						let command = this.toString();
 						if(command === "|")
 						{
 							command = "separator";
@@ -1530,13 +1523,13 @@
 							return;
 						}
 
-						var text = _(ASSOC_COMMANDNAMES[command]);
-						var className = "cazary-command-" + command;
+						const text = _(ASSOC_COMMANDNAMES[command]);
+						const className = `cazary-command-${command}`;
 
-						var $li = $("<li />")
+						const $li = $("<li />")
 							.attr({
 								"unselectable": "on",
-								"title": text
+								"title": text,
 							})
 							.addClass(className)
 							.text(text);
@@ -1556,8 +1549,8 @@
 				$(".cazary-panel")
 					.each(function()
 					{
-						var commandName = $(this).data("command");
-						var selector = ".cazary-command-" + commandName;
+						const commandName = $(this).data("command");
+						const selector = `.cazary-command-${commandName}`;
 						$(selector).removeClass("cazary-active");
 					})
 					.remove();
