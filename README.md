@@ -36,14 +36,18 @@ jQuery plugin of WYSIWYG editor that aims for fast, lightweight, stylish, custom
 
 * Copy `dist` to public directory
 * Load the theme CSS
+
 ```html
 <link rel="stylesheet" type="text/css" href="dist/themes/flat/style.css" />
 ```
+
 * Load jQuery and `cazary.min.js`
+
 ```html
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.min.js"></script>
 <script type="text/javascript" src="dist/cazary.min.js"></script>
 ```
+
 * Write JavaScript like this:
 ```js
 $(function($)
@@ -63,7 +67,7 @@ $(function($)
 });
 ```
 
-see [demo page](http://rawgit.com/shimataro/cazary/master/demo.html)
+see [demo page](demo.html)
 
 ### CommonJS method
 
